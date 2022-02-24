@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:tiles="http://www.thymeleaf.org">
+<head th:replace="common/header_admin :: common-header">
+    <title>Remove book</title>
+</head>
+<body>
+    <div th:replace="common/header_admin :: navbar"></div>
+
+    <div class="container" style="padding-top: 30px;">
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover table-striped">
+                <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Category</th>
+                    <th>Price(zł)</th>
+                    <th>Publisher</th>
+                    <th>Remove</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr data-th-each="book : ${books}">
+                    <td th:text="${book.getTitle()}"></td>
+                    <td th:text="${book.getAuthor()}"></td>
+                    <td th:text="${book.getCategory()}"></td>
+                    <td th:text="${book.getPrice()}"></td>
+                    <td th:text="${book.getPublisher()}"></td>
+                    <td>
+                        <form th:action="@{/book_action/remove_book(id=${book.getId()})}" th:name="id"
+                              th:value="${book.getId()}" method="post">
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</body>
+</html>

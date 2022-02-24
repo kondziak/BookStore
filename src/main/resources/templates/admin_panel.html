@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:tiles="http://www.thymeleaf.org" lang="en">
+<head th:replace="common/header_admin :: common-header">
+<body>
+<div th:replace="common/header_admin :: navbar"></div>
+
+<div class="admin_table">
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">First name</th>
+            <th scope="col">Last name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Delete</th>
+        </tr>
+        </thead>
+        <tbody th:each="user : ${users}" th:value="user">
+        <tr>
+            <td th:text="${user.getId()}"></td>
+            <td th:text="${user.getFirst_name()}"></td>
+            <td th:text="${user.getLast_name()}"></td>
+            <td th:text="${user.getEmail()}"></td>
+            <td>
+                <form th:action="@{/delete_user(id=${user.getId()})}" th:value="${user.getId()}" th:name="id" method="post">
+                    <button type="submit" class="btn btn-danger"  >Delete</button>
+                </form>
+            </td>
+        </tr>
+        </tbody>
+
+    </table>
+</div>
+
+
+</body>
+</html>
