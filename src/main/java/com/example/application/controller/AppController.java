@@ -11,4 +11,8 @@ public class AppController {
         return "index";
     }
 
+    @GetMapping("/home")
+    public String get_main_page(){
+        return "home";
+    }
 }

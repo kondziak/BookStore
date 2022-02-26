@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.*;
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Controller
 @RequestMapping("/book_action")
@@ -57,6 +59,27 @@ public class BookController {
             e.printStackTrace();
         }
         return "redirect:/book_action/show_remove";
+    }
+
+    @PostMapping("/search")
+    private String search_array(@RequestParam(value = "search") String searching_value, Model model){
+        Set<Book> allBooks = new HashSet<>();
+        List<Book> books = book_repository.findByTitle(searching_value);
+        if(books != null){
+            allBooks.addAll(books);
+        }
+        books = book_repository.findByAuthor(searching_value);
+        if(books != null){
+            allBooks.addAll(books);
+        }
+        books = book_repository.findByCategory(searching_value);
+        if(books != null){
+            allBooks.addAll(books);
+        }
+        if(allBooks.size() > 0){
+            model.addAttribute("books",allBooks.stream().toList());
+        }
+        return "home";
     }
 
     @GetMapping("/show_remove")

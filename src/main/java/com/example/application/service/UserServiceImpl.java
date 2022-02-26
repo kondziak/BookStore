@@ -36,7 +36,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public User save(UserRegistration userRegistration) {
         User user = new User(userRegistration.getName(),userRegistration.getLast_name(),userRegistration.getEmail(),
-                passwordEncoder.encode(userRegistration.getPassword()), Arrays.asList(new Role("ADMIN_ROLE")));
+                passwordEncoder.encode(userRegistration.getPassword()), Arrays.asList(new Role("USER_ROLE")));
         return userRepository.save(user);
     }
 

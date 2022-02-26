@@ -41,7 +41,7 @@ public class LoginController {
         List<Role> roles = (List<Role>) user.getRoles().stream().toList();
         Role role = roles.get(0);
         if(role.getName().compareTo("USER_ROLE") == 0){
-            return "home";
+            return "/home";
         }
         return "redirect:/admin_panel";
     }
