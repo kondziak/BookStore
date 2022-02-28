@@ -5,14 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1176f816-5efc-46ad-a08c-eefe4f816eb4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/common/header.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/add_book_user.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/book_detail.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/controller/AppController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/controller/AppController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/controller/BookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/controller/BookController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/controller/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/repository/BookRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/repository/BookRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/service/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/service/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/common/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/common/header.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/home.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,11 +56,15 @@
     </option>
   </component>
   <component name="ProjectId" id="24pcbuKylxKgyaVZfpvI6R6Fa5A" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RequestMappingsPanelOrder0" value="0" />
     <property name="RequestMappingsPanelOrder1" value="1" />
@@ -78,15 +82,20 @@
       <recent name="D:\Java\Application\src\main\resources\templates" />
       <recent name="D:\Java\Application\src\main\resources\static\css" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Konrad\Desktop\Nowy folder\BookStore\src\main\resources\templates" />
+    </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -124,7 +133,8 @@
       <workItem from="1645644951186" duration="2152000" />
       <workItem from="1645729948593" duration="86000" />
       <workItem from="1645730324034" duration="2886000" />
-      <workItem from="1645814407699" duration="7002000" />
+      <workItem from="1645814407699" duration="8828000" />
+      <workItem from="1645890978558" duration="21464000" />
     </task>
     <servers />
   </component>
@@ -141,5 +151,9 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>

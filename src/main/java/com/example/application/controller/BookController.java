@@ -95,4 +95,16 @@ public class BookController {
         return "add_book";
     }
 
+    @GetMapping("/show_add_book")
+    private String show_add_book(Model model){
+        model.addAttribute("book", new Book());
+        return "add_book_user";
+    }
+
+    @GetMapping("/book_detail")
+    private String get_book_detail(@RequestParam("id") Long id,Model model){
+        Book book = book_repository.getById(id);
+        model.addAttribute("book", book);
+        return "book_detail";
+    }
 }

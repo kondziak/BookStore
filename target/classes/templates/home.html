@@ -5,5 +5,51 @@
 </head>
 <body>
 <div th:replace="common/header :: navbar"></div>
+
+<div class="container">
+    <div class="row" style="margin-top: 20px;">
+        <div class="col-xs-9 col-xs-offset-3">
+            <div th:if="${books == null || books.size() == 0}">
+                <h4 style="font-style:italic">Ooops, no books found</h4>
+            </div>
+            <div>
+                <table border="0" id="books">
+                    <thead>
+                    </thead>
+                    <tbody>
+                        <tr class="book-item" data-th-each="book : ${books}">
+                            <td>
+                                <div th:if="${book != null}">
+                                    <div class="row">
+                                        <div class="col-xs-3">
+                                            <img class="img-responsive shelf-book" th:width="200px" th:height="300px"
+                                                 th:src="@{'../images/books/' + ${book.getId()}+'.png'}" alt="No image"/>
+                                        </div>
+                                        <div class="col-xs-9" style="padding-left: 30px;">
+                                            <a th:href="@{'/book_action/book_detail?id=' + ${book.getId()}}">
+                                                <h4 th:text="${'Title: ' +book.getTitle()}"></h4>
+                                            </a>
+                                            <span th:text="${'Publication date: ' + book.getPublication_date()}"></span>
+                                            <p th:text="${'Author: ' + book.getAuthor()}"></p>
+                                            <p th:text="${'Number of pages: '+book.getNumber_of_pages()}"></p>
+                                            <a th:href="@{'/book_action/book_detail?id=' + ${book.getId()}}">
+                                            <span style="font-size: x-large;color:#db3208;"
+                                                  th:text="${'Price: ' + #numbers.formatDecimal(book.getPrice(),0,'COMMA',2,'POINT') + ' zł'}">
+                                            </span>
+                                            </a>
+                                            <p th:text="${'Short description: ' + #strings.abbreviate(book.getDescription(),300)}"></p>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
 </body>
 </html>
