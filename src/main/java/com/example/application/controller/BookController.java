@@ -43,7 +43,7 @@ public class BookController {
         } catch (Exception e){
             e.printStackTrace();
         }
-        return "redirect:/add_book";
+        return "redirect:/home";
     }
 
     @PostMapping(value = "/remove_book")
