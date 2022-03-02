@@ -37,3 +37,8 @@
     padding-right: 20px;
     padding-top: 20px;
 }
+
+.title_font{
+    font-family: "Lucida Console","Courier New",monospace;
+    font-size: 24px;
+}

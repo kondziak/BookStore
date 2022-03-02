@@ -27,14 +27,14 @@
                                     <h4 th:text="${book.getTitle()}"></h4>
                                 </a>
                                 <span th:text="${'Publication date: ' + book.getPublication_date()}"></span>
-                                <p th:text="${'Author: ' + book.getAuthor()}"></p>
-                                <p th:text="${'Number of pages: '+book.getNumber_of_pages()}"></p>
+                                <p style="margin: 0;" th:text="${'Author: ' + book.getAuthor()}"></p>
+                                <p style="margin: 0;" th:text="${'Number of pages: '+book.getNumber_of_pages()}"></p>
                                 <a th:href="@{'/book_action/book_detail?id=' + ${book.getId()}}">
                                             <span style="font-size: x-large;color:#db3208;"
                                                   th:text="${'Price: ' + #numbers.formatDecimal(book.getPrice(),0,'COMMA',2,'POINT') + ' zł'}">
                                             </span>
                                 </a>
-                                <p th:text="${'Short description: ' + #strings.abbreviate(book.getDescription(),300)}"></p>
+                                <p th:text="${'Short description: ' + #strings.abbreviate(book.getDescription(),500)}"></p>
 
                             </div>
                         </div>

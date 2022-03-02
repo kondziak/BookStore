@@ -1,10 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:tiles="http://www.thymeleaf.org" lang="en">
+<head th:replace="common/header :: page-header">
+    <title>Bookstore</title>
 </head>
 <body>
+<div th:replace="common/header :: navbar"></div>
+
+<div class="container" style="margin-top: 10px;text-align: center">
+    <p th:text="${book.getTitle()}"
+       style="font-size: 36px;margin: 0;padding: 0;font-family:'Courier New','Lucida Console',monospace"></p>
+    <img class="img-responsive shelf-book" th:src="@{'../images/books/' + ${book.getId()}+'.png'}" alt="No image"
+         width="300" height="400"/>
+    <div style="text-align: justify;padding-left: 20px;padding-right: 10px;padding-top: 5px;">
+        <p style="margin-bottom: 0;" class="title_font" th:text="Description + ':'"></p>
+        <span style="font-size: 20px;" th:text="${'&emsp;' + book.getDescription() + ' Contains ' +
+             book.getNumber_of_pages() + ' pages.'}"></span>
+        <div class="row" style="margin-bottom: 0;font-size: 24px;align-items: baseline;">
+            <p style="margin: 0;padding-left: 15px;" class="title_font" th:text="'Written by: '"></p>
+            <span th:text="'&nbsp;'+${book.getAuthor()}"></span>
+        </div>
+        <div class="row" style="margin-bottom: 0;font-size: 24px;align-items: baseline;">
+            <p class="title_font" style="margin: 0;padding-left:15px;" th:text="'Published by: '"></p>
+            <span style="margin-bottom: 0;" th:text="${'&nbsp;'+book.getPublisher() + ' in ' + book.getPublication_date()}"></span>
+        </div>
+        <div class="row" style="margin-bottom: 0;font-size: 24px;align-items: baseline;">
+            <p class="title_font" style="margin: 0;padding-left: 15px" th:text="'Category: '"></p>
+            <span style="margin-bottom: 0;" th:text="${'&nbsp;'+book.getCategory()}"></span>
+        </div>
+        <div class="row" style="margin-bottom: 0;font-size: 24px;align-items: baseline;">
+            <p class="title_font" style="padding-left: 15px;" th:text="'Price: '"></p>
+            <span style="font-size: 32px;color: #db3208" th:text="${'&nbsp;'+ book.getPrice() + ' zł'}"></span>
+        </div>
+    </div>
+</div>
 
 </body>
 </html>
