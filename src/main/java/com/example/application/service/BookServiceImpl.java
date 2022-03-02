@@ -10,7 +10,9 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class BookServiceImpl implements BookService {
@@ -34,7 +36,30 @@ public class BookServiceImpl implements BookService {
         int current_page = pageable.getPageNumber();
         int start_item = page_size * current_page;
         int index = Math.min(start_item+page_size,books.size());
-        return new PageImpl<Book>(books.subList(start_item,index), PageRequest.of(current_page,page_size),books.size());
+        return new PageImpl<>(books.subList(start_item,index), PageRequest.of(current_page,page_size),books.size());
+    }
+
+    @Override
+    public Page<Book> find_searched_paginated(Pageable pageable, String search) {
+        Set<Book> allBooks = new HashSet<>();
+        List<Book> books = book_repository.findByTitle(search);
+        if(books != null){
+            allBooks.addAll(books);
+        }
+        books = book_repository.findByAuthor(search);
+        if(books != null){
+            allBooks.addAll(books);
+        }
+        books = book_repository.findByCategory(search);
+        if(books != null){
+            allBooks.addAll(books);
+        }
+        int page_size = pageable.getPageSize();
+        int current_page = pageable.getPageNumber();
+        int start_item = page_size * current_page;
+        int index = Math.min(start_item+page_size, allBooks.size());
+        return new PageImpl<>(allBooks.stream().toList().subList(start_item,index),
+                PageRequest.of(current_page,page_size), allBooks.size());
     }
 
 }

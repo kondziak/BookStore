@@ -2,8 +2,11 @@ package com.example.application.controller;
 
 import com.example.application.model.Book;
 import com.example.application.repository.BookRepository;
+import com.example.application.service.BookService;
 import lombok.NonNull;
 import org.springframework.context.annotation.Lazy;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -14,16 +17,20 @@ import java.io.FileOutputStream;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 @Controller
 @RequestMapping("/book_action")
 public class BookController {
 
     private final BookRepository book_repository;
+    private final BookService book_service;
 
-    public BookController(@NonNull @Lazy BookRepository book_repository) {
+    public BookController(@NonNull @Lazy BookRepository book_repository,@NonNull @Lazy BookService book_service) {
         super();
         this.book_repository = book_repository;
+        this.book_service = book_service;
     }
 
     @ModelAttribute("book")
@@ -63,21 +70,15 @@ public class BookController {
 
     @PostMapping("/search")
     private String search_array(@RequestParam(value = "search") String searching_value, Model model){
-        Set<Book> allBooks = new HashSet<>();
-        List<Book> books = book_repository.findByTitle(searching_value);
-        if(books != null){
-            allBooks.addAll(books);
-        }
-        books = book_repository.findByAuthor(searching_value);
-        if(books != null){
-            allBooks.addAll(books);
-        }
-        books = book_repository.findByCategory(searching_value);
-        if(books != null){
-            allBooks.addAll(books);
-        }
-        if(allBooks.size() > 0){
-            model.addAttribute("books",allBooks.stream().toList());
+        Page<Book> book_pages = book_service.find_searched_paginated(PageRequest.of(0,5),searching_value);
+        model.addAttribute("book_pages",book_pages);
+
+        System.out.println(book_pages.getTotalPages());
+        if(book_pages.getTotalPages() > 0){
+            List<Integer> page_num = IntStream.rangeClosed(1,book_pages.getTotalPages())
+                    .boxed()
+                    .collect(Collectors.toList());
+            model.addAttribute("page_numbers",page_num);
         }
         return "home";
     }

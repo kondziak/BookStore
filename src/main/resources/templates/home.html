@@ -8,53 +8,48 @@
 
 <div class="container">
     <div class="row" style="margin-top: 20px;">
-        <div class="col-xs-9 col-xs-offset-3">
-            <div th:if="${book_pages == null || book_pages.getSize() == 0}">
-                <h4 style="font-style:italic">Ooops, no books found</h4>
-            </div>
-            <div th:if="${book_pages != null && book_pages.getContent() != null}">
-                <table border="0" id="books">
-                    <thead>
-                    </thead>
-                    <tbody>
-                        <tr class="book-item" th:each="book, iStat : ${book_pages.getContent()}">
-                            <td>
-                                <div th:if="${book != null}">
-                                    <div class="row" style="padding-bottom: 10px;">
-                                        <div class="col-xs-3" style="float: left;">
-                                            <img class="img-responsive shelf-book" th:width="200px" th:height="300px"
-                                                 th:src="@{'../images/books/' + ${book.getId()}+'.png'}" alt="No image"/>
-                                        </div>
-                                        <div class="col-xs-9" style="padding-left: 30px;width: 80%">
-                                            <a th:href="@{'/book_action/book_detail?id=' + ${book.getId()}}">
-                                                <h4 th:text="${book.getTitle()}"></h4>
-                                            </a>
-                                            <span th:text="${'Publication date: ' + book.getPublication_date()}"></span>
-                                            <p th:text="${'Author: ' + book.getAuthor()}"></p>
-                                            <p th:text="${'Number of pages: '+book.getNumber_of_pages()}"></p>
-                                            <a th:href="@{'/book_action/book_detail?id=' + ${book.getId()}}">
+        <div th:if="${book_pages == null || book_pages.getSize() == 0}">
+            <h4 style="font-style:italic">Ooops, no books found</h4>
+        </div>
+        <table border="0" style="margin: 0;padding: 0;width: 100%;"
+               th:if="${book_pages != null && book_pages.getContent() != null}">
+            <tbody>
+            <tr class="book-item" th:each="book, iStat : ${book_pages.getContent()}">
+                <td>
+                    <div th:if="${book != null}">
+                        <div class="row" style="padding-bottom: 10px;">
+                            <div class="col-xs-3">
+                                <img class="img-responsive shelf-book" th:width="200px" th:height="300px"
+                                     th:src="@{'../images/books/' + ${book.getId()}+'.png'}" alt="No image"/>
+                            </div>
+                            <div class="col-xs-9" style="padding-left: 30px;width: 80%">
+                                <a th:href="@{'/book_action/book_detail?id=' + ${book.getId()}}">
+                                    <h4 th:text="${book.getTitle()}"></h4>
+                                </a>
+                                <span th:text="${'Publication date: ' + book.getPublication_date()}"></span>
+                                <p th:text="${'Author: ' + book.getAuthor()}"></p>
+                                <p th:text="${'Number of pages: '+book.getNumber_of_pages()}"></p>
+                                <a th:href="@{'/book_action/book_detail?id=' + ${book.getId()}}">
                                             <span style="font-size: x-large;color:#db3208;"
                                                   th:text="${'Price: ' + #numbers.formatDecimal(book.getPrice(),0,'COMMA',2,'POINT') + ' zł'}">
                                             </span>
-                                            </a>
-                                            <p th:text="${'Short description: ' + #strings.abbreviate(book.getDescription(),300)}"></p>
+                                </a>
+                                <p th:text="${'Short description: ' + #strings.abbreviate(book.getDescription(),300)}"></p>
 
-                                        </div>
-                                    </div>
+                            </div>
+                        </div>
 
-                                </div>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <div th:if="${book_pages.getTotalPages() > 0}" class="pagination" th:each="page_number : ${page_numbers}">
-                    <a th:href="@{/home(page=${page_number},size=${book_pages.getSize()})}" th:text="${page_number}"
-                    th:class="${page_number == book_pages.getNumber() + 1} ? active"></a>
-                </div>
-            </div>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <div th:if="${book_pages.getTotalPages() > 0}" class="pagination" th:each="page_number : ${page_numbers}">
+            <a th:href="@{/home(page=${page_number},size=${book_pages.getSize()})}" th:text="${page_number}"
+               th:class="${page_number == book_pages.getNumber() + 1} ? active"></a>
         </div>
     </div>
+
 </div>
 
 </body>

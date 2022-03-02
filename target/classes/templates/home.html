@@ -8,20 +8,16 @@
 
 <div class="container">
     <div class="row" style="margin-top: 20px;">
-        <div class="col-xs-9 col-xs-offset-3">
             <div th:if="${book_pages == null || book_pages.getSize() == 0}">
                 <h4 style="font-style:italic">Ooops, no books found</h4>
             </div>
-            <div th:if="${book_pages != null && book_pages.getContent() != null}">
-                <table border="0" id="books">
-                    <thead>
-                    </thead>
+                <table border="0" style="margin: 0;padding: 0;width: 100%;" th:if="${book_pages != null && book_pages.getContent() != null}">
                     <tbody>
                         <tr class="book-item" th:each="book, iStat : ${book_pages.getContent()}">
                             <td>
                                 <div th:if="${book != null}">
                                     <div class="row" style="padding-bottom: 10px;">
-                                        <div class="col-xs-3" style="float: left;">
+                                        <div class="col-xs-3">
                                             <img class="img-responsive shelf-book" th:width="200px" th:height="300px"
                                                  th:src="@{'../images/books/' + ${book.getId()}+'.png'}" alt="No image"/>
                                         </div>
@@ -47,14 +43,12 @@
                         </tr>
                     </tbody>
                 </table>
-
-                <div th:if="${book_pages.getTotalPages() > 0}" class="pagination" th:each="page_number : ${page_numbers}">
-                    <a th:href="@{/home(page=${page_number},size=${book_pages.getSize()})}" th:text="${page_number}"
-                    th:class="${page_number == book_pages.getNumber() + 1} ? active"></a>
-                </div>
-            </div>
+        <div th:if="${book_pages.getTotalPages() > 0}" class="pagination" th:each="page_number : ${page_numbers}">
+            <a th:href="@{/home(page=${page_number},size=${book_pages.getSize()})}" th:text="${page_number}"
+               th:class="${page_number == book_pages.getNumber() + 1} ? active"></a>
         </div>
     </div>
+
 </div>
 
 </body>
