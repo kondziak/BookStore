@@ -7,6 +7,7 @@ import java.util.List;
 
 public interface UserService extends UserDetailsService {
     User save(UserRegistration userRegistration);
+    User findUserByEmail(String email);
     void delete_user_by_id(Long id);
     List<User> getAll();
 }

@@ -9,21 +9,21 @@
 <body>
 <div tiles:fragment="content">
     <div class="container-fluid text-center" style="max-width: 450px;padding-top: 50px;">
-        <form name="f" action="/loginCheck" method="post" >
+        <form name="f" th:action="@{/login}" method="post" >
             <fieldset>
                 <legend>Please sign in</legend>
 
-                <div th:if="${error != null}" class="alert alert-danger" th:utext="${error}">
+                <div th:if="${error != null}" class="alert alert-danger" th:text="${error}">
                 </div>
 
                 <div class="border border-secondary p-3 rounded">
 
                     <p>Sign In</p>
                     <p>
-                        <input type="email" th:name="email" class="form-control" placeholder="E-mail" required autofocus/>
+                        <input type="email" name="username" class="form-control"  required autofocus/>
                     </p>
                     <p>
-                        <input type="password" th:name="password" class="form-control" placeholder="Password" required />
+                        <input type="password" name="password" class="form-control"  required />
                     </p>
                     <p>
                         <input type="submit" value="Login" class="btn btn-primary" />

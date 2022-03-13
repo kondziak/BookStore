@@ -1,20 +1,28 @@
 package com.example.application.configuration;
 
-import com.example.application.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.example.application.service.UserServiceImpl;
+import lombok.NonNull;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Configuration
+@EnableWebSecurity
 public class WebConfig extends WebSecurityConfigurerAdapter {
 
-    @Autowired
-    private UserService userService;
+    private final UserServiceImpl userService;
+
+    public WebConfig(@Lazy @NonNull UserServiceImpl userService) {
+        super();
+        this.userService = userService;
+    }
 
     @Bean
     public BCryptPasswordEncoder passwordEncoder(){
@@ -36,19 +44,21 @@ public class WebConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.csrf().disable().authorizeRequests()
-                .antMatchers("/templates/**","/css/**")
+        http
+                .authorizeRequests()
+                .antMatchers("/templates/**","/css/**","/images/**","/","/register", "/home")
                 .permitAll()
-                .antMatchers("/")
+                .antMatchers("/book_action/**")
                 .permitAll()
                 .anyRequest()
-                .permitAll()
+                .authenticated()
                 .and()
                 .formLogin()
                 .loginPage("/login")
-                .loginProcessingUrl("/login")
+                .successForwardUrl("/login")
+                .permitAll()
                 .and()
                 .logout()
-                .logoutSuccessUrl("/");
+                .permitAll();
     }
 }

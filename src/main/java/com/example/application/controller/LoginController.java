@@ -3,6 +3,7 @@ package com.example.application.controller;
 import com.example.application.model.Role;
 import com.example.application.model.User;
 import com.example.application.repository.UserRepository;
+import com.example.application.service.UserService;
 import lombok.NonNull;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -15,12 +16,12 @@ import java.util.List;
 @Controller
 public class LoginController {
 
-    private final UserRepository userRepository;
+    private final UserService userService;
 
     private final BCryptPasswordEncoder passwordEncoder;
 
-    public LoginController(@NonNull @Lazy UserRepository userRepository, @NonNull @Lazy BCryptPasswordEncoder passwordEncoder) {
-        this.userRepository = userRepository;
+    public LoginController(@NonNull @Lazy UserService userService, @NonNull @Lazy BCryptPasswordEncoder passwordEncoder) {
+        this.userService = userService;
         this.passwordEncoder = passwordEncoder;
     }
 
@@ -29,11 +30,11 @@ public class LoginController {
         return "login";
     }
 
-    @RequestMapping(value = "/loginCheck",method = RequestMethod.POST)
-    public String check_account(@RequestParam(value = "email",required = false) String email,
+    @RequestMapping(value = "/login",method = RequestMethod.POST)
+    public String check_account(@RequestParam(value = "username",required = false) String email,
                                 @RequestParam(value = "password",required = false) String password,
                                 Model model){
-        User user = userRepository.findByEmail(email);
+        User user = userService.findUserByEmail(email);
         if(user == null || !passwordEncoder.matches(password,user.getPassword())){
             model.addAttribute("error", "Wrong email or password");
             return "login";
