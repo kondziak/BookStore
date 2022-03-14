@@ -73,7 +73,6 @@ public class BookController {
         Page<Book> book_pages = book_service.find_searched_paginated(PageRequest.of(0,5),searching_value);
         model.addAttribute("book_pages",book_pages);
 
-        System.out.println(book_pages.getTotalPages());
         if(book_pages.getTotalPages() > 0){
             List<Integer> page_num = IntStream.rangeClosed(1,book_pages.getTotalPages())
                     .boxed()

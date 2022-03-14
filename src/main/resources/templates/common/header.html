@@ -12,12 +12,13 @@
             <div class="collapse navbar-collapse">
                 <a class="navbar-brand" th:href="@{/home}">Home</a>
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                    <li class="nav-item"><a class="nav-link" th:href="@{/book_action/show_add_book}">Add book</a> </li>
+                   <!-- <li class="nav-item"><a class="nav-link" th:href="@{/book_action/show_add_book}">Add book</a> </li> -->
+                    <li class="nav-item"><a class="nav-link" th:href="@{/billing/getAddresses}" >Billing</a></li>
                     <li class="nav-item"><a class="nav-link">Your cart</a> </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0" th:action="@{/book_action/search}" method="post">
                     <input class="form-control mr-sm-2" type="text" name="action" aria-label="Search"
-                           th:name="search" th:value="search">
+                           th:name="search">
                     <input class="btn btn-outline-success my-2 my-sm-0" type="submit" value="Search"/>
                 </form>
             </div>
