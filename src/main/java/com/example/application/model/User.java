@@ -2,6 +2,7 @@ package com.example.application.model;
 
 import javax.persistence.*;
 import java.util.Collection;
+import java.util.List;
 
 @Entity
 @Table(name = "users", uniqueConstraints = @UniqueConstraint(columnNames = "email"))
@@ -25,6 +26,9 @@ public class User {
     @JoinTable(name = "users_roles",joinColumns = @JoinColumn(name = "user_id",referencedColumnName = "id"),
     inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"))
     private Collection<Role> roles;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+    private List<Payment> userPayments;
 
     public User() {
     }
