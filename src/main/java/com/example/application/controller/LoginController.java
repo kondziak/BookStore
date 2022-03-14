@@ -6,6 +6,7 @@ import com.example.application.repository.UserRepository;
 import com.example.application.service.UserService;
 import lombok.NonNull;
 import org.springframework.context.annotation.Lazy;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -47,5 +48,9 @@ public class LoginController {
         return "redirect:/admin_panel";
     }
 
+    @GetMapping("/logout")
+    public String get_logout(){
+        return "index";
+    }
 
 }
