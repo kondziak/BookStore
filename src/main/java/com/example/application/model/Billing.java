@@ -3,22 +3,23 @@ package com.example.application.model;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "billing")
 public class Billing {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(name = "street")
+    @Column(name = "street",nullable = false)
     private String street;
 
-    @Column(name = "street_number")
+    @Column(name = "street_number",nullable = false)
     private String streetNumber;
 
-    @Column(name = "town")
+    @Column(name = "town",nullable = false)
     private String town;
 
-    @Column(name = "zip_code")
+    @Column(name = "zip_code",nullable = false)
     private String zipCode;
 
     @OneToOne(cascade = CascadeType.ALL)

@@ -3,40 +3,40 @@ package com.example.application.model;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "payment")
 public class Payment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(name = "expiry_year")
+    @Column(name = "expiry_year",nullable = false)
     private Integer expiryYear;
 
-    @Column(name = "expiry_month")
+    @Column(name = "expiry_month",nullable = false)
     private Integer expiryMonth;
 
-    @Column(name = "cvc")
+    @Column(name = "cvc",nullable = false)
     private Integer cvc;
 
-    @Column(name = "type")
+    @Column(name = "type",nullable = false)
     private String type;
 
-    @Column(name = "card_number")
+    @Column(name = "card_number",nullable = false)
     private String cardNumber;
 
-    @Column(name = "card_name")
+    @Column(name = "card_name",nullable = false)
     private String cardName;
 
-    @Column(name = "holder_name")
+    @Column(name = "holder_name",nullable = false)
     private String holderName;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
 
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "userPayment")
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "payment")
     private Billing billing;
-
 
     public Long getId() {
         return id;
@@ -117,4 +117,5 @@ public class Payment {
     public void setBilling(Billing billing) {
         this.billing = billing;
     }
+
 }
