@@ -10,6 +10,9 @@ public class Billing {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @Column(name = "country",nullable = false)
+    private String country;
+
     @Column(name = "street",nullable = false)
     private String street;
 
@@ -28,6 +31,9 @@ public class Billing {
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
+
+    public Billing() {
+    }
 
     public Long getId() {
         return id;
@@ -75,5 +81,21 @@ public class Billing {
 
     public void setPayment(Payment payment) {
         this.payment = payment;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

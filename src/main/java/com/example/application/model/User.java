@@ -91,4 +91,20 @@ public class User {
     public void setRoles(Collection<Role> roles) {
         this.roles = roles;
     }
+
+    public List<Payment> getUserPayments() {
+        return userPayments;
+    }
+
+    public void setUserPayments(List<Payment> userPayments) {
+        this.userPayments = userPayments;
+    }
+
+    public List<Billing> getBillingList() {
+        return billingList;
+    }
+
+    public void setBillingList(List<Billing> billingList) {
+        this.billingList = billingList;
+    }
 }

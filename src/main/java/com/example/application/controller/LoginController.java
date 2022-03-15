@@ -38,7 +38,7 @@ public class LoginController {
             model.addAttribute("error", "Wrong email or password");
             return "login";
         }
-        List<Role> roles = (List<Role>) user.getRoles().stream().toList();
+        List<Role> roles = user.getRoles().stream().toList();
         Role role = roles.get(0);
         if(role.getName().compareTo("USER_ROLE") == 0){
             return "redirect:/home";

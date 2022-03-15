@@ -5,8 +5,6 @@ import com.example.application.model.User;
 import com.example.application.model.UserRegistration;
 import com.example.application.repository.UserRepository;
 import lombok.NonNull;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -14,18 +12,17 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-
-import java.util.Arrays;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
 public class UserServiceImpl implements UserService {
 
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
 
-    private BCryptPasswordEncoder passwordEncoder;
+    private final BCryptPasswordEncoder passwordEncoder;
 
     public UserServiceImpl(@NonNull @Lazy UserRepository userRepository, @NonNull @Lazy BCryptPasswordEncoder passwordEncoder) {
         super();
@@ -36,7 +33,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public User save(UserRegistration userRegistration) {
         User user = new User(userRegistration.getName(),userRegistration.getLast_name(),userRegistration.getEmail(),
-                passwordEncoder.encode(userRegistration.getPassword()), Arrays.asList(new Role("USER_ROLE")));
+                passwordEncoder.encode(userRegistration.getPassword()), Collections.singletonList(new Role("USER_ROLE")));
         return userRepository.save(user);
     }
 
