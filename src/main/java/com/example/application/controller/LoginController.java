@@ -2,11 +2,9 @@ package com.example.application.controller;
 
 import com.example.application.model.Role;
 import com.example.application.model.User;
-import com.example.application.repository.UserRepository;
 import com.example.application.service.UserService;
 import lombok.NonNull;
 import org.springframework.context.annotation.Lazy;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

@@ -58,8 +58,8 @@ public class AppController {
         return "add_address";
     }
 
-
-
-
-
+    @GetMapping("/edit_data")
+    public String getUserData(){
+        return "edit_data";
+    }
 }

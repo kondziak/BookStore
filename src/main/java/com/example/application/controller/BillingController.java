@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping(name = "/billing")
+@RequestMapping("/billing")
 public class BillingController {
 
     private final BillingService billingService;
@@ -24,12 +24,13 @@ public class BillingController {
     }
 
 
-    @GetMapping("/getAddresses")
+    @GetMapping("/get_addresses")
     public String getAddresses(){
         String email = SecurityContextHolder.getContext().getAuthentication().getName();
         User user = userService.findUserByEmail(email);
-        System.out.println(user.getId().toString() + " " + user.getEmail());
-        return "home";
+
+
+        return "get_addresses";
     }
 
     @PostMapping("/addAddress")
