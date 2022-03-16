@@ -19,6 +19,7 @@ public class CartController {
     @PostMapping("/addToCart")
     public String setCart(@RequestParam(name = "quantity")Integer quantity, @RequestParam(name = "id")Long id, Model model){
 
+        model.addAttribute("id",id);
         return "redirect:/book_action/book_detail?id=" + id.toString();
     }
 

@@ -83,5 +83,11 @@ public class CartItem {
         this.order = order;
     }
 
+    public ShoppingCart getShoppingCart() {
+        return shoppingCart;
+    }
 
+    public void setShoppingCart(ShoppingCart shoppingCart) {
+        this.shoppingCart = shoppingCart;
+    }
 }
