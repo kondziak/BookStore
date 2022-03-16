@@ -23,7 +23,7 @@ public class Payment {
     private String type;
 
     @Column(name = "card_number",nullable = false)
-    private String cardNumber;
+    private Long cardNumber;
 
     @Column(name = "card_name",nullable = false)
     private String cardName;
@@ -78,11 +78,11 @@ public class Payment {
         this.type = type;
     }
 
-    public String getCardNumber() {
+    public Long getCardNumber() {
         return cardNumber;
     }
 
-    public void setCardNumber(String cardNumber) {
+    public void setCardNumber(Long cardNumber) {
         this.cardNumber = cardNumber;
     }
 

@@ -39,7 +39,6 @@ public class Book {
     @Column(nullable = false, name = "description",columnDefinition = "text")
     private String description;
 
-    @Column(nullable = false, name = "book_image")
     @Transient
     private MultipartFile book_image;
 

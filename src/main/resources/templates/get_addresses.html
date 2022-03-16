@@ -7,7 +7,7 @@
 <div th:replace="common/header :: navbar"></div>
 
     <div class="container">
-        <div class="row" style="justify-content: right;">
+        <div style="text-align: right;">
             <a th:href="@{/billing/addAddress}" style="color: #707f90;">Want to add an address?</a>
         </div>
 
@@ -33,10 +33,7 @@
                     <td th:text="${billing.getStreetNumber()}"></td>
                 </tr>
             </tbody>
-
-
         </table>
-
     </div>
 
 

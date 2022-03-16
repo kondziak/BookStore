@@ -12,9 +12,9 @@
             <div class="collapse navbar-collapse">
                 <a class="navbar-brand" th:href="@{/home}">Home</a>
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                   <!-- <li class="nav-item"><a class="nav-link" th:href="@{/book_action/show_add_book}">Add book</a> </li> -->
                     <li class="nav-item"><a class="nav-link" th:href="@{/billing/get_addresses}">Billing</a></li>
                     <li class="nav-item"><a class="nav-link" th:href="@{/edit_data}">Edit data</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/showCards}">Credit cards</a></li>
                     <li class="nav-item"><a class="nav-link">Your cart</a> </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0" th:action="@{/book_action/search}" method="post">

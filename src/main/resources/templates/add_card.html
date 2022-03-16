@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:replace="common/header :: page-header" >
+  <title>Bookstore</title>
+</head>
+<body>
+<div th:replace="common/header :: navbar"></div>
+
+<div class="container">
+
+  <div th:if="${error != null}" class="alert alert-danger" style="margin-top: 10px;" th:text="${error}"></div>
+
+  <form th:action="@{/addCard}" method="post" style="margin-top: 10px;">
+    <fieldset>
+      <legend class="center-block"></legend>
+
+      <div class="form-group">
+        <label for="cardName">Card name</label>
+        <input type="text" class="form-control" id="cardName" th:name="cardName" th:value="${payment.cardName}"
+               required="required" placeholder="Card name"/>
+      </div>
+
+      <div class="form-group">
+        <label for="cardNumber">Card Number</label>
+        <input type="text" class="form-control" id="cardNumber" th:name="cardNumber" th:value="${payment.cardNumber}"
+               required="required" placeholder="Card number"/>
+      </div>
+
+      <div class="form-group">
+        <label for="holderName">Holder name</label>
+        <input type="text" class="form-control" id="holderName" th:name="holderName"
+               th:value="${payment.holderName}" required="required" placeholder="Holder name"/>
+      </div>
+
+      <div class="form-group">
+        <label for="type">Type</label>
+        <input type="text" class="form-control" id="type" th:name="type" th:value="${payment.type}"
+               required="required" placeholder="Type"/>
+      </div>
+
+      <div class="form-group">
+        <label for="cvc">CVC</label>
+        <input type="number" class="form-control" id="cvc" th:name="cvc"
+               th:value="${payment.cvc}" required="required" placeholder="CVC"/>
+      </div>
+
+      <div class="form-group">
+        <label for="expiryMonth">Expiry Month</label>
+        <input type="number" class="form-control" id="expiryMonth" th:name="expiryMonth"
+               th:value="${payment.expiryMonth}" required="required" placeholder="Expiry Month"/>
+      </div>
+
+      <div class="form-group">
+        <label for="expiryYear">Expiry year</label>
+        <input type="number" class="form-control" id="expiryYear" th:name="expiryYear" th:value="${payment.expiryYear}"
+               required="required" placeholder="Expiry year"/>
+      </div>
+
+      <button type="submit" class="btn btn-primary btn-lg">Add address</button>
+    </fieldset>
+  </form>
+</div>
+
+
+</body>
+</html>
