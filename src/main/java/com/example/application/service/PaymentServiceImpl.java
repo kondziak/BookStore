@@ -1,10 +1,13 @@
 package com.example.application.service;
 
 import com.example.application.model.Payment;
+import com.example.application.model.User;
 import com.example.application.repository.PaymentRepository;
 import lombok.NonNull;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class PaymentServiceImpl implements  PaymentService{
@@ -16,6 +19,11 @@ public class PaymentServiceImpl implements  PaymentService{
     }
 
     @Override
+    public List<Payment> findAllByUser(User user) {
+        return paymentRepository.findAllByUser(user);
+    }
+
+    @Override
     public Payment findById(Long id) {
         return paymentRepository.getById(id);
     }
@@ -23,5 +31,10 @@ public class PaymentServiceImpl implements  PaymentService{
     @Override
     public void removeById(Long id) {
         paymentRepository.deleteById(id);
+    }
+
+    @Override
+    public void save(Payment payment) {
+        paymentRepository.save(payment);
     }
 }

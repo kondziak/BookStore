@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:replace="common/header :: page-header" >
+  <title>Bookstore</title>
+</head>
+<body>
+<div th:replace="common/header :: navbar"></div>
+
+<div class="container" style="margin-top: 10px;">
+  <div style="text-align: right">
+    <a th:href="@{/addCard}" style="color: #707f90;">Want to add a card?</a>
+  </div>
+
+  <table th:if="${payments != null && payments.size() > 0}" class="table" style="padding-top: 10px;">
+    <thead class="thead-dark">
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Card name</th>
+      <th scope="col">Card number</th>
+      <th scope="col">Expiry month</th>
+      <th scope="col">Expiry year</th>
+      <th scope="col">CVC</th>
+      <th scope="col">Holder name</th>
+      <th scope="col">Type</th>
+    </tr>
+    </thead>
+    <tbody th:each="payment : ${payments}" th:value="${payment}">
+    <tr>
+      <td th:text="${payment.getId()}"></td>
+      <td th:text="${payment.getCardName()}"></td>
+      <td th:text="${payment.getCardNumber()}"></td>
+      <td th:text="${payment.getExpiryMonth()}"></td>
+      <td th:text="${payment.getExpiryYear()}"></td>
+      <td th:text="${payment.getCvc()}"></td>
+      <td th:text="${payment.getHolderName()}"></td>
+      <td th:text="${payment.getType()}"></td>
+    </tr>
+    </tbody>
+  </table>
+
+
+</div>
+
+
+</body>
+</html>
