@@ -105,6 +105,7 @@ public class BookController {
     private String get_book_detail(@RequestParam("id") Long id,Model model){
         Book book = book_repository.getById(id);
         model.addAttribute("book", book);
+        model.addAttribute("id",id);
         return "book_detail";
     }
 }

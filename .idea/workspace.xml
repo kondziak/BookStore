@@ -5,14 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1176f816-5efc-46ad-a08c-eefe4f816eb4" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/application/model/ShoppingCart.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/application/service/CartItemService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/application/service/CartItemServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/user_cart.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/controller/BillingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/controller/BillingController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/controller/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/model/Billing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/model/Billing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/controller/BookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/controller/BookController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/controller/CartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/controller/CartController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/model/CartItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/model/CartItem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/service/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/service/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/get_addresses.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/get_addresses.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/remove_book.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/remove_book.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/service/BillingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/service/BillingService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/service/BillingServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/service/BillingServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/add_address.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/add_address.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/book_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/book_detail.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,8 +28,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="HTML File" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -89,15 +95,13 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -144,7 +148,8 @@
       <workItem from="1647090275273" duration="11752000" />
       <workItem from="1647175569549" duration="14423000" />
       <workItem from="1647241182658" duration="27460000" />
-      <workItem from="1647342861406" duration="15999000" />
+      <workItem from="1647342861406" duration="19062000" />
+      <workItem from="1647414188781" duration="10417000" />
     </task>
     <servers />
   </component>

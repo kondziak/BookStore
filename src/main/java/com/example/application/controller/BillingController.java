@@ -10,6 +10,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -40,8 +41,21 @@ public class BillingController {
     }
 
     @GetMapping("/addAddress")
-    public String addAddress(){
-
+    public String addAddress(Model model){
+        Billing billing = new Billing();
+        model.addAttribute("billing", billing);
         return "add_address";
     }
+
+    @PostMapping("/addAddress")
+    public String addAddress(@ModelAttribute("billing") Billing billing){
+        String email = SecurityContextHolder.getContext().getAuthentication().getName();
+        User user = userService.findUserByEmail(email);
+        billing.setUser(user);
+        billingService.save(billing);
+        return "get_addresses";
+    }
+
+    @ModelAttribute("billing")
+    public Billing createBilling(){return new Billing();}
 }

@@ -31,6 +31,10 @@ public class CartItem {
     @JoinColumn(name = "order_id")
     private Order order;
 
+    @ManyToOne
+    @JoinColumn(name = "shopping_cart_id")
+    private ShoppingCart shoppingCart;
+
     public Long getId() {
         return id;
     }
@@ -78,4 +82,6 @@ public class CartItem {
     public void setOrder(Order order) {
         this.order = order;
     }
+
+
 }
