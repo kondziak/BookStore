@@ -21,6 +21,11 @@ public class BillingServiceImpl implements  BillingService{
     }
 
     @Override
+    public Billing save(Billing billing) {
+        return billingRepository.save(billing);
+    }
+
+    @Override
     public void removeById(Long id) {
         billingRepository.deleteById(id);
     }
