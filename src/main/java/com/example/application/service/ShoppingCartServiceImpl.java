@@ -29,11 +29,13 @@ public class ShoppingCartServiceImpl implements ShoppingCartService{
 
         List<CartItem> cartItemList = cartItemService.findByShoppingCart(shoppingCart);
         for(CartItem cartItem : cartItemList){
-            cartItemService.updateCartItem(cartItem);
-            total = total.add(cartItem.getSubtotal());
+            if(cartItem.getQuantity() > 0){
+                cartItemService.updateCartItem(cartItem);
+                total = total.add(cartItem.getSubtotal());
+            }
         }
 
-        shoppingCart.setCartItemList(cartItemList);
+        shoppingCart.setTotal(total);
         shoppingCartRepository.save(shoppingCart);
         return shoppingCart;
     }

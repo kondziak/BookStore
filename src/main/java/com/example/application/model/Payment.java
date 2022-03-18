@@ -38,6 +38,17 @@ public class Payment {
     @OneToOne(cascade = CascadeType.ALL, mappedBy = "payment")
     private Billing billing;
 
+    @OneToOne
+    private Order order;
+
+    public Order getOrder() {
+        return order;
+    }
+
+    public void setOrder(Order order) {
+        this.order = order;
+    }
+
     public Long getId() {
         return id;
     }

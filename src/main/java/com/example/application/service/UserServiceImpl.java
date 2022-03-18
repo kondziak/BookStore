@@ -1,8 +1,8 @@
 package com.example.application.service;
 
 import com.example.application.model.Role;
+import com.example.application.model.ShoppingCart;
 import com.example.application.model.User;
-import com.example.application.model.UserRegistration;
 import com.example.application.repository.UserRepository;
 import lombok.NonNull;
 import org.springframework.context.annotation.Lazy;
@@ -12,9 +12,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
+import javax.transaction.Transactional;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
@@ -31,9 +30,27 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User save(UserRegistration userRegistration) {
-        User user = new User(userRegistration.getName(),userRegistration.getLast_name(),userRegistration.getEmail(),
-                passwordEncoder.encode(userRegistration.getPassword()), Collections.singletonList(new Role("USER_ROLE")));
+    public User save(User user) {
+        return userRepository.save(user);
+    }
+
+    @Override
+    @Transactional
+    public User createUser(User user) throws Exception {
+        User user1 = userRepository.findByEmail(user.getEmail());
+        if(user1 != null){
+            throw new Exception("User already exists");
+        }
+        Set<Role> roleSet = new HashSet<>();
+        roleSet.add(new Role("USER_ROLE"));
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        user.setRoles(roleSet);
+        ShoppingCart shoppingCart = new ShoppingCart();
+        shoppingCart.setUser(user);
+        user.setShoppingCart(shoppingCart);
+        user.setBillingList(new ArrayList<>());
+        user.setUserPayments(new ArrayList<>());
+
         return userRepository.save(user);
     }
 
