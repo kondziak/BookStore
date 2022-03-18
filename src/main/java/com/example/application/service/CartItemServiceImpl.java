@@ -1,7 +1,6 @@
 package com.example.application.service;
 
 import com.example.application.model.*;
-import com.example.application.repository.BookedCartItemRepository;
 import com.example.application.repository.CartItemRepository;
 import lombok.NonNull;
 import org.springframework.context.annotation.Lazy;
