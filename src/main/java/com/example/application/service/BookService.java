@@ -8,4 +8,5 @@ public interface BookService {
     Book save(Book book);
     Page<Book>find_paginated(Pageable pageable);
     Page<Book>find_searched_paginated(Pageable pageable, String search);
+    Book getBookById(Long id);
 }

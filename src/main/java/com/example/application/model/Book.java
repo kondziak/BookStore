@@ -12,13 +12,13 @@ public class Book {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(nullable = false,name = "author")
+    @Column(nullable = false, name = "author")
     private String author;
 
-    @Column(nullable = false,name = "title")
+    @Column(nullable = false, name = "title")
     private String title;
 
-    @Column(nullable = false,name = "publisher")
+    @Column(nullable = false, name = "publisher")
     private String publisher;
 
     @Column(nullable = false, name = "publication_date")
@@ -36,8 +36,11 @@ public class Book {
     @Column(nullable = false, name = "price")
     private Double price;
 
-    @Column(nullable = false, name = "description",columnDefinition = "text")
+    @Column(nullable = false, name = "description", columnDefinition = "text")
     private String description;
+
+    @Column(nullable = false, name = "in_stock")
+    private Integer in_stock;
 
     @Transient
     private MultipartFile book_image;
@@ -122,9 +125,19 @@ public class Book {
         this.description = description;
     }
 
-    public MultipartFile getBook_image() { return book_image; }
+    public MultipartFile getBook_image() {
+        return book_image;
+    }
 
     public void setBook_image(MultipartFile book_image) {
         this.book_image = book_image;
+    }
+
+    public Integer getIn_stock() {
+        return in_stock;
+    }
+
+    public void setIn_stock(Integer in_stock) {
+        this.in_stock = in_stock;
     }
 }

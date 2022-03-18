@@ -28,40 +28,37 @@ public class PaymentController {
     }
 
     @GetMapping("/addCard")
-    public String getCard(Model model){
+    public String getCard(Model model) {
         model.addAttribute("payment", new Payment());
         return "add_card";
     }
 
     @ModelAttribute("payment")
-    public Payment getPayment(){
+    public Payment getPayment() {
         return new Payment();
     }
 
     @PostMapping("/addCard")
-    public String saveCard(Model model, @ModelAttribute("payment") Payment payment, Principal principal){
+    public String saveCard(Model model, @ModelAttribute("payment") Payment payment, Principal principal) {
         boolean error = false;
         String message = "";
-        if(payment.getExpiryYear() < 2022){
+        if (payment.getExpiryYear() < 2022) {
             error = true;
             message = "Wrong expiry year";
-        }
-        else if(!(payment.getExpiryMonth() > 0 && payment.getExpiryMonth() < 13)){
+        } else if (!(payment.getExpiryMonth() > 0 && payment.getExpiryMonth() < 13)) {
             error = true;
             message = "Wrong expiry month";
-        }
-        else if(!(payment.getCvc() > 99 && payment.getCvc() < 1000)){
+        } else if (!(payment.getCvc() > 99 && payment.getCvc() < 1000)) {
             error = true;
             message = "Invalid cvc";
-        }
-        else if(!CardValidation.isValid(payment.getCardNumber())){
+        } else if (!CardValidation.isValid(payment.getCardNumber())) {
             error = true;
             message = "Invalid card number";
         }
         model.addAttribute("payment", new Payment());
 
-        if(error){
-            model.addAttribute("error",message);
+        if (error) {
+            model.addAttribute("error", message);
             return "add_card";
         }
         User user = userService.findUserByEmail(principal.getName());
@@ -71,14 +68,10 @@ public class PaymentController {
     }
 
     @GetMapping("/showCards")
-    public String showCards(Model model, Principal principal){
+    public String showCards(Model model, Principal principal) {
         User user = userService.findUserByEmail(principal.getName());
         List<Payment> paymentList = paymentService.findAllByUser(user);
-        model.addAttribute("payments" ,paymentList);
+        model.addAttribute("payments", paymentList);
         return "show_cards";
     }
-
-
-
-
 }

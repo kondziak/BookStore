@@ -1,15 +1,11 @@
 package com.example.application.controller;
 
-import com.example.application.model.User;
-import com.example.application.model.UserRegistration;
 import com.example.application.service.UserService;
 import lombok.NonNull;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @Controller
 public class AdminController {
