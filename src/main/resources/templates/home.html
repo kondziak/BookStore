@@ -8,6 +8,8 @@
 
 <div class="container">
     <div class="row" style="margin-top: 20px;">
+        <div th:if="${error != null}" th:text="${error}" class="alert alert-info" style="margin-bottom: 10px"></div>
+
         <div th:if="${book_pages == null || book_pages.getSize() == 0}">
             <h4 style="font-style:italic">Ooops, no books found</h4>
         </div>

@@ -1,10 +1,63 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:replace="common/header :: page-header">
+    <title>Bookstore</title>
 </head>
 <body>
+<div th:replace="common/header :: navbar"></div>
 
+<div class="container">
+    <div>
+    <form th:action="@{/cart_action/bookItems/addAnAddress}" method="post">
+        <fieldset>
+            <legend class="center-block"></legend>
+
+            <div class="form-group">
+                <label for="country">Country</label>
+                <input type="text" class="form-control" id="country" th:name="country" th:value="${billing.country}"
+                       required="required" placeholder="Country"/>
+            </div>
+
+            <div class="form-group">
+                <label for="street">Street</label>
+                <input type="text" class="form-control" id="street" th:name="street" th:value="${billing.street}"
+                       required="required" placeholder="Street"/>
+            </div>
+
+            <div class="form-group">
+                <label for="streetNumber">Street number</label>
+                <input type="text" class="form-control" id="streetNumber" th:name="streetNumber"
+                       th:value="${billing.streetNumber}" required="required" placeholder="Street number"/>
+            </div>
+
+            <div class="form-group">
+                <label for="town">Town</label>
+                <input type="text" class="form-control" id="town" th:name="town" th:value="${billing.town}"
+                       required="required" placeholder="Town"/>
+            </div>
+
+            <div class="form-group">
+                <label for="zipCode">Zip code</label>
+                <input type="text" class="form-control" id="zipCode" th:name="zipCode"
+                       th:value="${billing.zipCode}" required="required" placeholder="Zip code"/>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-lg">Add address</button>
+        </fieldset>
+    </form>
+    </div>
+
+    <div class="container" style="text-align: center;" th:if="${userBillings != null && userBillings.size() > 0}">
+        <h3 style="margin: 10px 0 10px 0;">Or use an existing address</h3>
+        <form th:action="@{/cart_action/bookItems/useExistingAddress}" method="post">
+                <select th:name="id" id="id" th:value="${billing.getId()}" class="form-select">
+                    <option th:each="billing : ${userBillings}" th:value="${billing.getId()}" th:text="${billing.toString()}"></option>
+                </select>
+                <input type="submit" class="btn btn-primary btn-lg" th:value="${'Use this'}">
+
+        </form>
+    </div>
+
+</div>
 </body>
 </html>

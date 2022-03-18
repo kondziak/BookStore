@@ -44,6 +44,7 @@
         </tbody>
     </table>
 
+
     <div class="row" style="display: block;margin-bottom: 5px;">
         <hr style="text-align: left;margin: auto;width: 100%;border-top: 2px solid rgb(0, 0, 0);">
     </div>
@@ -52,8 +53,8 @@
         <div class="col">
             <h2 th:text="${'Whole price: ' + shoppingCart.getTotal() + ' zł'}"></h2>
         </div>
-        <div class="col">
-            <form th:action="" method="post" style="text-align: right;">
+        <div>
+            <form th:action="@{'/cart_action/bookItems/' + ${shoppingCart.getId()}}" method="get" style="text-align: right;">
                 <input type="submit" class="cart_button" value="Continue" >
             </form>
         </div>

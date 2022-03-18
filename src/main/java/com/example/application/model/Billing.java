@@ -98,4 +98,9 @@ public class Billing {
     public void setUser(User user) {
         this.user = user;
     }
+
+    @Override
+    public String toString() {
+        return country + ", " + town + " " + zipCode + ", " + street + " " + streetNumber;
+    }
 }
