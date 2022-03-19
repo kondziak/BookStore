@@ -24,6 +24,11 @@ public class ShoppingCartServiceImpl implements ShoppingCartService{
     }
 
     @Override
+    public ShoppingCart save(ShoppingCart shoppingCart) {
+        return shoppingCartRepository.save(shoppingCart);
+    }
+
+    @Override
     public ShoppingCart updateShoppingCart(ShoppingCart shoppingCart) {
         BigDecimal total = new BigDecimal(0);
 

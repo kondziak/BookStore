@@ -11,16 +11,14 @@ import java.math.RoundingMode;
 import java.util.List;
 
 @Service
-public class CartItemServiceImpl implements CartItemService{
+public class CartItemServiceImpl implements CartItemService {
 
     private final CartItemRepository cartItemRepository;
 
-    private final BookedCartItemRepository bookedCartItemRepository;
 
-    public CartItemServiceImpl(@NonNull @Lazy CartItemRepository cartItemRepository,
-                               @NonNull @Lazy BookedCartItemRepository bookedCartItemRepository) {
+    public CartItemServiceImpl(@NonNull @Lazy CartItemRepository cartItemRepository
+    ) {
         this.cartItemRepository = cartItemRepository;
-        this.bookedCartItemRepository = bookedCartItemRepository;
     }
 
     @Override
@@ -41,8 +39,8 @@ public class CartItemServiceImpl implements CartItemService{
     public CartItem addBookToCartItem(Book book, User user, Integer quantity) {
         List<CartItem> cartItems = findByShoppingCart(user.getShoppingCart());
 
-        for(CartItem cartItem : cartItems){
-            if(cartItem.getBook().getId().equals(book.getId())){
+        for (CartItem cartItem : cartItems) {
+            if (cartItem.getBook().getId().equals(book.getId())) {
                 cartItem.setQuantity(cartItem.getQuantity() + quantity);
                 cartItem.setSubtotal(BigDecimal.valueOf(book.getPrice()).multiply(new BigDecimal(quantity)));
                 cartItemRepository.save(cartItem);
@@ -56,11 +54,6 @@ public class CartItemServiceImpl implements CartItemService{
         cartItem.setQuantity(quantity);
         cartItem.setSubtotal(BigDecimal.valueOf(book.getPrice()).multiply(new BigDecimal(quantity)));
         cartItemRepository.save(cartItem);
-
-        BookedCartItem bookedCartItem = new BookedCartItem();
-        bookedCartItem.setCartItem(cartItem);
-        bookedCartItem.setBook(book);
-        bookedCartItemRepository.save(bookedCartItem);
 
         return cartItem;
     }

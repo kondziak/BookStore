@@ -65,9 +65,9 @@
     </div>
 
     <h3 style="margin: 5px 0 10px 0;">Or use an existing card</h3>
-    <form th:action="@{'/cart_action/bookItems/checkPayment' + ${billingId}}" method="post">
-      <select th:name="id" id="id" class="form-select">
-        <option th:each="payment : ${userPayments}" th:value="${payment.cardNumber}" th:text="${payment.getCardNumber()}"></option>
+    <form th:action="@{'/cart_action/bookItems/checkPaymentWithExistingCard/' + ${billingId}}" method="post">
+      <select class="form-select" name="paymentId" id="paymentId">
+        <option th:each="payment : ${userPayments}" th:value="${payment.getId()}" th:text="${payment.toString()}"></option>
       </select>
       <input type="submit" class="btn btn-primary btn-lg" th:value="${'Use this'}">
 

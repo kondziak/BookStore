@@ -5,19 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1176f816-5efc-46ad-a08c-eefe4f816eb4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/application/repository/OrderRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/application/service/OrderService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/application/service/OrderServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/pay.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/controller/BookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/controller/BookController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/controller/CartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/controller/CartController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/model/Billing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/model/Billing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/model/CartItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/model/CartItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/model/Payment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/model/Payment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/service/CartItemServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/service/CartItemServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/service/ShoppingCartService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/service/ShoppingCartService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/service/ShoppingCartServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/service/ShoppingCartServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/booking_items.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/booking_items.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/cart.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/cart.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/pay.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/pay.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,19 +89,6 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="Application" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.application.Application" />
@@ -153,7 +135,8 @@
       <workItem from="1647414188781" duration="31684000" />
       <workItem from="1647468965476" duration="829000" />
       <workItem from="1647510340151" duration="22612000" />
-      <workItem from="1647587863179" duration="22098000" />
+      <workItem from="1647587863179" duration="22188000" />
+      <workItem from="1647698421011" duration="4644000" />
     </task>
     <servers />
   </component>

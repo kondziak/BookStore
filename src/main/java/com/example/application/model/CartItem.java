@@ -14,18 +14,14 @@ public class CartItem {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(name = "quantity",nullable = false)
+    @Column(name = "quantity", nullable = false)
     private Integer quantity;
 
-    @Column(name = "subtotal",nullable = false)
+    @Column(name = "subtotal", nullable = false)
     private BigDecimal subtotal;
 
     @OneToOne
     private Book book;
-
-    @OneToMany(mappedBy = "cartItem")
-    @JsonIgnore
-    private List<BookedCartItem> bookedCartItemList;
 
     @ManyToOne
     @JoinColumn(name = "order_id")
@@ -65,14 +61,6 @@ public class CartItem {
 
     public void setBook(Book book) {
         this.book = book;
-    }
-
-    public List<BookedCartItem> getBookedCartItemList() {
-        return bookedCartItemList;
-    }
-
-    public void setBookedCartItemList(List<BookedCartItem> bookedCartItemList) {
-        this.bookedCartItemList = bookedCartItemList;
     }
 
     public Order getOrder() {

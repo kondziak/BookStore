@@ -41,6 +41,11 @@ public class Payment {
     @OneToOne
     private Order order;
 
+    @Override
+    public String toString() {
+        return cardName + ", " + cardNumber + ", " + type;
+    }
+
     public Order getOrder() {
         return order;
     }
