@@ -5,15 +5,10 @@ import com.example.application.model.*;
 import com.example.application.service.*;
 import lombok.NonNull;
 import org.springframework.context.annotation.Lazy;
-import org.springframework.data.jpa.convert.threeten.Jsr310JpaConverters;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
 import java.security.Principal;
-import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -48,6 +43,7 @@ public class CartController {
     public String getCart(Model model, Principal principal) {
         User user = userService.findUserByEmail(principal.getName());
         ShoppingCart shoppingCart = user.getShoppingCart();
+        System.out.println(shoppingCart.getId());
         List<CartItem> cartItemList = cartItemService.findByShoppingCart(shoppingCart);
         shoppingCartService.updateShoppingCart(shoppingCart);
 
@@ -159,12 +155,53 @@ public class CartController {
             order = orderService.save(order);
             payment.setOrder(order);
             paymentService.save(payment);
-            user.setShoppingCart(new ShoppingCart());
+            ShoppingCart shoppingCart = new ShoppingCart();
+            shoppingCart.setUser(user);
+            shoppingCartService.updateShoppingCart(shoppingCart);
+            user.setShoppingCart(shoppingCart);
             userService.save(user);
             model.addAttribute("success","You paid successfuly");
         }
         return "home";
     }
+
+    @PostMapping("/bookItems/checkPaymentWithExistingCard/{billingId}")
+    public String checkPaymentWithExistingCard(@PathVariable(name = "billingId") Long id,
+                                               @RequestParam(name = "paymentId") Long paymentId,
+                                               Model model, Principal principal){
+        Payment payment = paymentService.findById(paymentId);
+        Date date = new Date();
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        calendar.add(Calendar.DATE,3);
+        User user = userService.findUserByEmail(principal.getName());
+        Billing billing = billingService.findById(id);
+        payment.setUser(user);
+        payment.setBilling(billing);
+        List<CartItem> itemList = new ArrayList<>(user.getShoppingCart().getCartItemList());
+        Order order = new Order();
+        order.setPayment(payment);
+        order.setBilling(billing);
+        order.setUser(user);
+        order.setBookedCartItemList(itemList);
+        order.setOrderDate(date);
+        order.setOrderStatus("ordered");
+        order.setTotalOrder(user.getShoppingCart().getTotal());
+        order.setShippingDate(calendar.getTime());
+        order = orderService.save(order);
+        payment.setOrder(order);
+        paymentService.save(payment);
+        ShoppingCart shoppingCart = user.getShoppingCart();
+        shoppingCart.setCartItemList(new ArrayList<>());
+        shoppingCartService.updateShoppingCart(shoppingCart);
+        shoppingCartService.save(shoppingCart);
+        user.setShoppingCart(shoppingCart);
+        userService.save(user);
+        model.addAttribute("success","You paid successfuly");
+        return "home";
+    }
+
+
 
 
 
