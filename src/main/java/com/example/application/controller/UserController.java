@@ -28,14 +28,14 @@ public class UserController {
     public String changeName(@RequestParam(name = "first_name") String firstName){
         User user = userService.findUserByEmail(SecurityContextHolder.getContext().getAuthentication().getName());
         user.setFirst_name(firstName);
-        return "redirect:/edit_data";
+        return "redirect:/editData";
     }
 
     @PostMapping("/changeLastName")
     public String changeLastName(@RequestParam(name = "last_name") String lastName){
         User user = userService.findUserByEmail(SecurityContextHolder.getContext().getAuthentication().getName());
         user.setLast_name(lastName);
-        return "redirect:/edit_data";
+        return "redirect:/editData";
     }
 
     @PostMapping("/changePassword")

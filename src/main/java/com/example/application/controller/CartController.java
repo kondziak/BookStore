@@ -15,7 +15,7 @@ import java.util.Date;
 import java.util.List;
 
 @Controller
-@RequestMapping("/cart_action")
+@RequestMapping("/cartAction")
 public class CartController {
 
     private final UserService userService;
@@ -43,10 +43,8 @@ public class CartController {
     public String getCart(Model model, Principal principal) {
         User user = userService.findUserByEmail(principal.getName());
         ShoppingCart shoppingCart = user.getShoppingCart();
-        System.out.println(shoppingCart.getId());
         List<CartItem> cartItemList = cartItemService.findByShoppingCart(shoppingCart);
         shoppingCartService.updateShoppingCart(shoppingCart);
-
         model.addAttribute("user",user);
         model.addAttribute("cartItems",cartItemList);
         model.addAttribute("shoppingCart",shoppingCart);
@@ -64,7 +62,7 @@ public class CartController {
         model.addAttribute("book", book);
         model.addAttribute("bookSuccess",true);
         model.addAttribute("id", id);
-        return "redirect:/book_action/book_detail?id=" + id.toString();
+        return "redirect:/bookAction/bookDetail?id=" + id.toString();
     }
 
     @GetMapping("/bookItems/{id}")
@@ -113,7 +111,6 @@ public class CartController {
     @PostMapping("/bookItems/checkPayment")
     public String checkPayment(@ModelAttribute("payment") Payment payment, @RequestParam(name = "billingId") Long id,
                                Model model, Principal principal){
-        System.out.println(payment.getCardNumber());
         boolean error = false;
         String message = "";
         if (payment.getExpiryYear() < 2022) {

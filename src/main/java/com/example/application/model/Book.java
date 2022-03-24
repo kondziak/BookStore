@@ -22,7 +22,7 @@ public class Book {
     private String publisher;
 
     @Column(nullable = false, name = "publication_date")
-    private String publication_date;
+    private String publicationDate;
 
     @Column(nullable = false, name = "category")
     private String category;
@@ -31,7 +31,7 @@ public class Book {
     private String language;
 
     @Column(nullable = false, name = "number_of_pages")
-    private Integer number_of_pages;
+    private Integer numberOfPages;
 
     @Column(nullable = false, name = "price")
     private Double price;
@@ -40,7 +40,7 @@ public class Book {
     private String description;
 
     @Column(nullable = false, name = "in_stock")
-    private Integer in_stock;
+    private Integer inStock;
 
     @Transient
     private MultipartFile book_image;
@@ -77,14 +77,6 @@ public class Book {
         this.publisher = publisher;
     }
 
-    public String getPublication_date() {
-        return publication_date;
-    }
-
-    public void setPublication_date(String publication_date) {
-        this.publication_date = publication_date;
-    }
-
     public String getCategory() {
         return category;
     }
@@ -99,14 +91,6 @@ public class Book {
 
     public void setLanguage(String language) {
         this.language = language;
-    }
-
-    public Integer getNumber_of_pages() {
-        return number_of_pages;
-    }
-
-    public void setNumber_of_pages(Integer number_of_pages) {
-        this.number_of_pages = number_of_pages;
     }
 
     public Double getPrice() {
@@ -133,11 +117,27 @@ public class Book {
         this.book_image = book_image;
     }
 
-    public Integer getIn_stock() {
-        return in_stock;
+    public String getPublicationDate() {
+        return publicationDate;
     }
 
-    public void setIn_stock(Integer in_stock) {
-        this.in_stock = in_stock;
+    public void setPublicationDate(String publicationDate) {
+        this.publicationDate = publicationDate;
+    }
+
+    public Integer getNumberOfPages() {
+        return numberOfPages;
+    }
+
+    public void setNumberOfPages(Integer numberOfPages) {
+        this.numberOfPages = numberOfPages;
+    }
+
+    public Integer getInStock() {
+        return inStock;
+    }
+
+    public void setInStock(Integer inStock) {
+        this.inStock = inStock;
     }
 }

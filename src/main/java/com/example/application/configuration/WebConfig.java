@@ -49,7 +49,7 @@ public class WebConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/templates/**","/css/**","/images/**","/","/register", "/home")
                 .permitAll()
-                .antMatchers("/book_action*")
+                .antMatchers("/bookAction*")
                 .hasRole("USER_ROLE")
                 .antMatchers("/billing*")
                 .hasRole("USER_ROLE")

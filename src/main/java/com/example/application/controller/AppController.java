@@ -50,13 +50,13 @@ public class AppController {
         return "home";
     }
 
-    @GetMapping("/add_address")
+    @GetMapping("/addAddress")
     public String getAddress(Model model){
         model.addAttribute("billing", new Billing());
         return "add_address";
     }
 
-    @GetMapping("/edit_data")
+    @GetMapping("/editData")
     public String getUserData(){
         return "edit_data";
     }
