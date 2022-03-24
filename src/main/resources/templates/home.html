@@ -25,13 +25,13 @@
                                      th:src="@{'../images/books/' + ${book.getId()}+'.png'}" alt="No image"/>
                             </div>
                             <div class="col-xs-9" style="padding-left: 30px;width: 80%">
-                                <a th:href="@{'/book_action/book_detail?id=' + ${book.getId()}}">
+                                <a th:href="@{'/bookAction/bookDetail?id=' + ${book.getId()}}">
                                     <h4 th:text="${book.getTitle()}"></h4>
                                 </a>
                                 <span th:text="${'Publication date: ' + book.getPublication_date()}"></span>
                                 <p style="margin: 0;" th:text="${'Author: ' + book.getAuthor()}"></p>
                                 <p style="margin: 0;" th:text="${'Number of pages: '+book.getNumber_of_pages()}"></p>
-                                <a th:href="@{'/book_action/book_detail?id=' + ${book.getId()}}">
+                                <a th:href="@{'/bookAction/bookDetail?id=' + ${book.getId()}}">
                                             <span style="font-size: x-large;color:#db3208;"
                                                   th:text="${'Price: ' + #numbers.formatDecimal(book.getPrice(),0,'COMMA',2,'POINT') + ' zł'}">
                                             </span>

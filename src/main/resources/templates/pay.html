@@ -9,7 +9,7 @@
 <div class="container">
 
 
-  <form th:action="@{'/cart_action/bookItems/checkPayment?billingId=' + ${billingId}}" method="post" style="margin-top: 10px;">
+  <form th:action="@{'/cartAction/bookItems/checkPayment?billingId=' + ${billingId}}" method="post" style="margin-top: 10px;">
     <fieldset>
       <legend class="center-block"></legend>
 
@@ -65,7 +65,7 @@
     </div>
 
     <h3 style="margin: 5px 0 10px 0;">Or use an existing card</h3>
-    <form th:action="@{'/cart_action/bookItems/checkPaymentWithExistingCard/' + ${billingId}}" method="post">
+    <form th:action="@{'/cartAction/bookItems/checkPaymentWithExistingCard/' + ${billingId}}" method="post">
       <select class="form-select" name="paymentId" id="paymentId">
         <option th:each="payment : ${userPayments}" th:value="${payment.getId()}" th:text="${payment.toString()}"></option>
       </select>

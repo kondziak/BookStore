@@ -25,12 +25,12 @@ public class LoginController {
     }
 
     @GetMapping("/login")
-    public String get_login_page(){
+    public String getLoginPage(){
         return "login";
     }
 
     @RequestMapping(value = "/login",method = RequestMethod.POST)
-    public String check_account(@RequestParam(value = "username",required = false) String email,
+    public String checkAccount(@RequestParam(value = "username",required = false) String email,
                                 @RequestParam(value = "password",required = false) String password,
                                 Model model){
         User user = userService.findUserByEmail(email);
@@ -43,11 +43,11 @@ public class LoginController {
         if(role.getName().compareTo("USER_ROLE") == 0){
             return "redirect:/home";
         }
-        return "redirect:/admin_panel";
+        return "redirect:/adminPanel";
     }
 
     @GetMapping("/logout")
-    public String get_logout(){
+    public String getLogout(){
         return "index";
     }
 

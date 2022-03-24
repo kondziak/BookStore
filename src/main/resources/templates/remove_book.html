@@ -27,7 +27,7 @@
                     <td th:text="${book.getPrice()}"></td>
                     <td th:text="${book.getPublisher()}"></td>
                     <td>
-                        <form th:action="@{/book_action/remove_book(id=${book.getId()})}" th:name="id"
+                        <form th:action="@{/bookAction/removeBook(id=${book.getId()})}" th:name="id"
                               th:value="${book.getId()}" method="post">
                         <button type="submit" class="btn btn-danger">Delete</button>
                         </form>

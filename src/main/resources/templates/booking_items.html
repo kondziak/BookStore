@@ -8,7 +8,7 @@
 
 <div class="container">
     <div>
-    <form th:action="@{/cart_action/bookItems/addAnAddress}" method="post">
+    <form th:action="@{/cartAction/bookItems/addAnAddress}" method="post">
         <fieldset>
             <legend class="center-block"></legend>
 
@@ -49,7 +49,7 @@
 
     <div class="container" style="text-align: center;" th:if="${userBillings != null && userBillings.size() > 0}">
         <h3 style="margin: 10px 0 10px 0;">Or use an existing address</h3>
-        <form th:action="@{/cart_action/bookItems/useExistingAddress}" method="post">
+        <form th:action="@{/cartAction/bookItems/useExistingAddress}" method="post">
                 <select th:name="id" id="id" th:value="${billing.getId()}" class="form-select">
                     <option th:each="billing : ${userBillings}" th:value="${billing.getId()}" th:text="${billing.toString()}"></option>
                 </select>

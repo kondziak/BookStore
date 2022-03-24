@@ -20,17 +20,17 @@ public class RegisterController {
     }
 
     @ModelAttribute("user")
-    public User user_registration() {
+    public User userRegistration() {
         return new User();
     }
 
     @GetMapping
-    public String show_register() {
+    public String showRegister() {
         return "register";
     }
 
     @PostMapping
-    public String register_user(@ModelAttribute("user") User user, Model model) {
+    public String registerUser(@ModelAttribute("user") User user, Model model) {
         try {
             userService.createUser(user);
         } catch (Exception e) {

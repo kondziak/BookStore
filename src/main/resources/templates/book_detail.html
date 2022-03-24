@@ -7,7 +7,7 @@
 <div th:replace="common/header :: navbar"></div>
 
 <div class="container" style="margin-top: 10px;text-align: center">
-    <form th:action="@{'/cart_action/addToCart?id=' + ${id}}" th:if="${book.getIn_stock() > 0}" method="post" style="text-align: right;">
+    <form th:action="@{'/cartAction/addToCart?id=' + ${id}}" th:if="${book.getIn_stock() > 0}" method="post" style="text-align: right;">
         <label for="quantity">Quantity</label>
         <input type="number" min="1" th:max="${book.getIn_stock()}" id="quantity" name="quantity">
         <input type="submit" class="cart_button" value="Add to cart" >

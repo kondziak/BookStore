@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import java.util.List;
 
 @Controller
@@ -29,7 +28,7 @@ public class BillingController {
     }
 
 
-    @GetMapping("/get_addresses")
+    @GetMapping("/getAddresses")
     public String getAddresses(Model model){
         String email = SecurityContextHolder.getContext().getAuthentication().getName();
         User user = userService.findUserByEmail(email);

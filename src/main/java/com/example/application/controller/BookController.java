@@ -18,26 +18,26 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 @Controller
-@RequestMapping("/book_action")
+@RequestMapping("/bookAction")
 public class BookController {
 
-    private final BookRepository book_repository;
-    private final BookService book_service;
+    private final BookRepository bookRepository;
+    private final BookService bookService;
 
     public BookController(@NonNull @Lazy BookRepository book_repository,@NonNull @Lazy BookService book_service) {
         super();
-        this.book_repository = book_repository;
-        this.book_service = book_service;
+        this.bookRepository = book_repository;
+        this.bookService = book_service;
     }
 
     @ModelAttribute("book")
-    Book create_book(){
+    Book createBook(){
         return new Book();
     }
 
     @RequestMapping(value = "/add",method = RequestMethod.POST)
-    private String add_book(@ModelAttribute("book") Book book){
-       book_repository.save(book);
+    private String addBook(@ModelAttribute("book") Book book){
+       bookRepository.save(book);
         try{
             byte[] bytes = book.getBook_image().getBytes();
             String name = "src/main/resources/static/images/books/" + book.getId() + ".png";
@@ -50,24 +50,24 @@ public class BookController {
         return "redirect:/home";
     }
 
-    @PostMapping(value = "/remove_book")
-    private String remove_book(@RequestParam(value="id") Long id){
+    @PostMapping(value = "/removeBook")
+    private String removeBook(@RequestParam(value="id") Long id){
         String name = "src/main/resources/static/images/books/" + id + ".png";
         try{
             File file = new File(name);
             if(file.exists() && !file.isDirectory()){
                 file.delete();
             }
-            book_repository.deleteById(id);
+            bookRepository.deleteById(id);
         } catch (Exception e){
             e.printStackTrace();
         }
-        return "redirect:/book_action/show_remove";
+        return "redirect:/bookAction/showRemove";
     }
 
     @PostMapping("/search")
-    private String search_array(@RequestParam(value = "search") String searching_value, Model model){
-        Page<Book> book_pages = book_service.find_searched_paginated(PageRequest.of(0,5),searching_value);
+    private String searchArray(@RequestParam(value = "search") String searching_value, Model model){
+        Page<Book> book_pages = bookService.find_searched_paginated(PageRequest.of(0,5),searching_value);
         model.addAttribute("book_pages",book_pages);
 
         if(book_pages.getTotalPages() > 0){
@@ -79,28 +79,28 @@ public class BookController {
         return "home";
     }
 
-    @GetMapping("/show_remove")
-    private String show_remove_form(Model model){
-        List<Book> books = book_repository.findAll();
+    @GetMapping("/showRemove")
+    private String showRemoveForm(Model model){
+        List<Book> books = bookRepository.findAll();
         model.addAttribute("books",books);
         return "remove_book";
     }
 
-    @GetMapping("/show_add")
-    private String show_add_form(Model model){
+    @GetMapping("/showAdd")
+    private String showAddForm(Model model){
         model.addAttribute("book",new Book());
         return "add_book";
     }
 
-    @GetMapping("/show_add_book")
-    private String show_add_book(Model model){
+    @GetMapping("/showAddBook")
+    private String showAddBook(Model model){
         model.addAttribute("book", new Book());
         return "add_book_user";
     }
 
-    @GetMapping("/book_detail")
-    private String get_book_detail(@RequestParam("id") Long id,Model model){
-        Book book = book_repository.getById(id);
+    @GetMapping("/bookDetail")
+    private String getBookDetail(@RequestParam("id") Long id,Model model){
+        Book book = bookRepository.getById(id);
         model.addAttribute("book", book);
         model.addAttribute("id",id);
         return "book_detail";

@@ -27,7 +27,7 @@
                                  th:src="@{'../images/books/' + ${cart.getBook().getId()}+'.png'}">
                         </div>
                         <div class="col" style="margin-left: 5px;margin-right: 5px;">
-                            <a style="text-align: center" th:href="@{'/book_action/book_detail?id=' + ${cart.getBook().getId()}}">
+                            <a style="text-align: center" th:href="@{'/bookAction/bookDetail?id=' + ${cart.getBook().getId()}}">
                                 <h2 th:text="${cart.getBook().getTitle()}"></h2>
                             </a>
                             <h3 th:text="${'Author: ' + cart.getBook().getAuthor()}"></h3>
@@ -54,7 +54,7 @@
             <h2 th:text="${'Whole price: ' + shoppingCart.getTotal() + ' zł'}"></h2>
         </div>
         <div>
-            <form th:action="@{'/cart_action/bookItems/' + ${shoppingCart.getId()}}" method="get" style="text-align: right;">
+            <form th:action="@{'/cartAction/bookItems/' + ${shoppingCart.getId()}}" method="get" style="text-align: right;">
                 <input type="submit" class="cart_button" value="Continue" >
             </form>
         </div>
