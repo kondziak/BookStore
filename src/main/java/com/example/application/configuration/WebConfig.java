@@ -58,6 +58,7 @@ public class WebConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .formLogin()
                 .loginPage("/login")
+                .failureForwardUrl("/login")
                 .successForwardUrl("/login")
                 .permitAll()
                 .and()

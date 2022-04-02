@@ -11,14 +11,6 @@
     display: inline;
 }
 
-.login_button{
-    color: white;
-    background-color: royalblue;
-    height: 300px;
-    width: 80%;
-    font-size: 54px;
-}
-
 .admin_table{
     padding-left: 20px;
     padding-right: 20px;
@@ -179,7 +171,44 @@
     box-shadow: 0 1px 5px rgba(0,0,0,0.3);
 }
 
-
 .register_button:active{
+    transform: scale(0.98);
+}
+
+.login_title{
+    font-weight: bold;
+    text-align: center;
+    font-family: serif;
+    padding: 20px 0;
+}
+
+.login_label{
+    padding: 20px 40px 0;
+    margin: 20px 40px;
+    font-size: 18px;
+    font-family: monospace;
+}
+
+.login_form{
+    border: 1px solid black;
+    padding: 20px 20px 10px;
+    border-radius: 10px;
+    background-image: linear-gradient(#f3cece, #e59fba, #e7bbbb);
+    box-shadow: 0 1px 5px rgba(0,0,0,0.5);
+}
+
+.login_button{
+    margin-right: 15px;
+    padding: 10px 20px;
+    color: white;
+    outline: 0;
+    background-image: linear-gradient(to right, #da1515, #eea32d);
+    border: 0;
+    border-radius: 10px;
+    font-size: 18px;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.3);
+}
+
+.login_button:active{
     transform: scale(0.98);
 }

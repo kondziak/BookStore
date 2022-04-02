@@ -38,6 +38,7 @@ public class LoginController {
             model.addAttribute("error", "Wrong email or password");
             return "login";
         }
+        System.out.println(user.toString());
         List<Role> roles = user.getRoles().stream().toList();
         Role role = roles.get(0);
         if(role.getName().compareTo("USER_ROLE") == 0){
