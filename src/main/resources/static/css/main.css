@@ -19,19 +19,6 @@
     font-size: 54px;
 }
 
-.register_button{
-    color: white;
-    background-color: royalblue;
-    height: 300px;
-    width: 80%;
-    font-size: 54px;
-}
-
-.register_container{
-    width: 100%;
-    padding-top: 20px;
-}
-
 .admin_table{
     padding-left: 20px;
     padding-right: 20px;
@@ -149,4 +136,50 @@
 
 .split.left, .split.right, split.left::before, .split.right::before{
     transition: all var(--speed) ease-in-out;
+}
+
+.common_container{
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    flex-direction: column;
+}
+
+.register_title{
+    letter-spacing: 2px;
+    padding: 20px;
+    font-weight: bold;
+}
+
+.register_form{
+    border: 1px solid black;
+    padding: 20px 60px 10px;
+    border-radius: 10px;
+    background-image: linear-gradient(#f3cece, #e59fba, #e7bbbb);
+    box-shadow: 0 1px 5px rgba(0,0,0,0.5);
+}
+
+.control-label{
+    margin-bottom: 5px;
+    font-family: monospace;
+    font-size: 18px;
+}
+
+.register_button{
+    margin-right: 15px;
+    padding: 10px 20px;
+    color: white;
+    outline: 0;
+    background-image: linear-gradient(to right, #da1515, #eea32d);
+    border: 0;
+    border-radius: 10px;
+    font-size: 18px;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.3);
+}
+
+
+.register_button:active{
+    transform: scale(0.98);
 }

@@ -9,46 +9,40 @@
 </head>
 <body>
 
-<div class="register_container">
-    <div class="row">
+<div class="common_container" style="background-color: bisque;">
 
-        <div class="col-md-6 offset-md-2">
-
-            <h1>Registration</h1>
+            <h1 class="register_title">Registration</h1>
 
             <div th:if="${error != null}" th:text="${error}" class="alert alert-danger"
                  style="margin: 10px 0 10px 0;">
             </div>
 
-            <form th:action="@{/register}" method="post" th:object="${user}">
-                <div class="col">
+            <form th:action="@{/register}" method="post" th:object="${user}" class="register_form">
+                <div class="col" style="margin: 0 0 20px;">
                     <label class="control-label" for="first_name">First name</label>
                     <input id="first_name" class="form-control" th:field="*{firstName}" required autofocus="autofocus">
                 </div>
 
-                <div class="col">
+                <div class="col" style="margin: 0 0 20px;">
                     <label class="control-label" for="last_name">Last name</label>
                     <input id="last_name" class="form-control" th:field="*{lastName}" required autofocus="autofocus">
                 </div>
 
-                <div class="col">
+                <div class="col" style="margin: 0 0 20px;">
                     <label class="control-label" for="email">Email</label>
                     <input id="email" class="form-control" th:field="*{email}" required autofocus="autofocus">
                 </div>
 
-                <div class="col">
+                <div class="col" style="margin: 0 0 20px;">
                     <label class="control-label" for="password">Password</label>
                     <input id="password" class="form-control" type="password"
                            th:field="*{password}" required autofocus="autofocus">
                 </div>
                 <div class="col" style="padding-top: 10px">
-                    <button type="submit" class="btn btn-primary">Register</button>
+                    <button type="submit" class="register_button">Register</button>
                     <span>Already registered? <a th:href="@{/login}">Login here</a> </span>
                 </div>
             </form>
-
-        </div>
-    </div>
 </div>
 </body>
 </html>
