@@ -23,12 +23,12 @@
             <form th:action="@{/register}" method="post" th:object="${user}">
                 <div class="col">
                     <label class="control-label" for="first_name">First name</label>
-                    <input id="first_name" class="form-control" th:field="*{first_name}" required autofocus="autofocus">
+                    <input id="first_name" class="form-control" th:field="*{firstName}" required autofocus="autofocus">
                 </div>
 
                 <div class="col">
                     <label class="control-label" for="last_name">Last name</label>
-                    <input id="last_name" class="form-control" th:field="*{last_name}" required autofocus="autofocus">
+                    <input id="last_name" class="form-control" th:field="*{lastName}" required autofocus="autofocus">
                 </div>
 
                 <div class="col">
