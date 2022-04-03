@@ -245,3 +245,7 @@
 .book_row.show{
     transform: translateX(0);
 }
+
+.navbarItemUpdated{
+    color: rgba(255,255,255,1) !important;
+}
