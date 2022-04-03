@@ -11,27 +11,6 @@
     display: inline;
 }
 
-.login_button{
-    color: white;
-    background-color: royalblue;
-    height: 300px;
-    width: 80%;
-    font-size: 54px;
-}
-
-.register_button{
-    color: white;
-    background-color: royalblue;
-    height: 300px;
-    width: 80%;
-    font-size: 54px;
-}
-
-.register_container{
-    width: 100%;
-    padding-top: 20px;
-}
-
 .admin_table{
     padding-left: 20px;
     padding-right: 20px;
@@ -61,7 +40,208 @@
     background-color: rgba(255, 150, 0, 1);
 }
 
+:root{
+    --hover-width: 75%;
+    --other-width: 25%;
+    --speed: 1000ms;
+}
+
 .cart_button:active {
     box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6),
     inset 2px 2px 3px rgba(0, 0, 0, .6);
+}
+
+.index_body{
+    box-sizing: border-box;
+    font-family: sans-serif;
+    overflow: hidden;
+    height: 100vh;
+    margin: 0;
+}
+.index_container{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.index_button{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    left:50%;
+    top:40%;
+    transform: translateX(-50%);
+    text-decoration: none;
+    color: white;
+    border: white solid 0.2rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    width: 15rem;
+    padding: 1.5rem;
+}
+
+.split{
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.split.left{
+    left: 0;
+    background-color: bisque;
+}
+
+.split.right{
+    right: 0;
+    background-color: palevioletred;
+}
+
+.split.left a{
+    background-color: palevioletred;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+.split.right a{
+    background-color: bisque;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    color: black;
+}
+
+.hover-left .left{
+    width: var(--hover-width);
+}
+
+.hover-left .right{
+    width: var(--other-width);
+}
+
+.hover-right .left{
+    width: var(--other-width);
+}
+
+.hover-right .right{
+    width: var(--hover-width);
+}
+
+.split.left, .split.right, split.left::before, .split.right::before{
+    transition: all var(--speed) ease-in-out;
+}
+
+.common_container{
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    flex-direction: column;
+}
+
+.register_title{
+    letter-spacing: 2px;
+    padding: 20px;
+    font-weight: bold;
+}
+
+.register_form{
+    border: 1px solid black;
+    padding: 20px 60px 10px;
+    border-radius: 10px;
+    background-image: linear-gradient(#f3cece, #e59fba, #e7bbbb);
+    box-shadow: 0 1px 5px rgba(0,0,0,0.5);
+}
+
+.control-label{
+    margin-bottom: 5px;
+    font-family: monospace;
+    font-size: 18px;
+}
+
+.register_button{
+    margin-right: 15px;
+    padding: 10px 20px;
+    color: white;
+    outline: 0;
+    background-image: linear-gradient(to right, #da1515, #eea32d);
+    border: 0;
+    border-radius: 10px;
+    font-size: 18px;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.3);
+}
+
+.register_button:active{
+    transform: scale(0.98);
+}
+
+.login_title{
+    font-weight: bold;
+    text-align: center;
+    font-family: serif;
+    padding: 20px 0;
+}
+
+.login_label{
+    padding: 20px 40px 0;
+    margin: 20px 40px;
+    font-size: 18px;
+    font-family: monospace;
+}
+
+.login_form{
+    border: 1px solid black;
+    padding: 20px 20px 10px;
+    border-radius: 10px;
+    background-image: linear-gradient(#f3cece, #e59fba, #e7bbbb);
+    box-shadow: 0 1px 5px rgba(0,0,0,0.5);
+}
+
+.login_button{
+    margin-right: 15px;
+    padding: 10px 20px;
+    color: white;
+    outline: 0;
+    background-image: linear-gradient(to right, #da1515, #eea32d);
+    border: 0;
+    border-radius: 10px;
+    font-size: 18px;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.3);
+}
+
+.login_button:active{
+    transform: scale(0.98);
+}
+
+.main_container{
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    margin: 20px;
+    flex-direction: column;
+}
+
+.main_row{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 0 20px;
+}
+
+.book_row{
+    border-radius: 10px;
+    border: 1px solid black;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 5px 10px;
+    background-color: lightyellow;
+    margin: 10px 5px;
+    box-shadow: 1px 1px 5px rgba(0,0,0,0.3);
+    transform: translateX(-400%);
+    transition: transform 0.8s ease-in;
+}
+
+.book_row.show{
+    transform: translateX(0);
 }

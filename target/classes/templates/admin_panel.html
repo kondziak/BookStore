@@ -22,7 +22,7 @@
             <td th:text="${user.getLast_name()}"></td>
             <td th:text="${user.getEmail()}"></td>
             <td>
-                <form th:action="@{/delete_user(id=${user.getId()})}" th:value="${user.getId()}" th:name="id" method="post">
+                <form th:action="@{/deleteUser(id=${user.getId()})}" th:value="${user.getId()}" th:name="id" method="post">
                     <button type="submit" class="btn btn-danger"  >Delete</button>
                 </form>
             </td>
