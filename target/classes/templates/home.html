@@ -1,28 +1,28 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:tiles="http://www.thymeleaf.org" lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head th:replace="common/header :: page-header">
     <title>Bookstore</title>
 </head>
-<body>
+<body style="background-color: floralwhite">
 <div th:replace="common/header :: navbar"></div>
 
-<div class="container">
-    <div class="row" style="margin-top: 20px;">
+<div class="main_container">
+    <div class="main_row">
         <div th:if="${error != null}" th:text="${error}" class="alert alert-info" style="margin-bottom: 10px"></div>
 
         <div th:if="${book_pages == null || book_pages.getSize() == 0}">
             <h4 style="font-style:italic">Ooops, no books found</h4>
         </div>
-        <table border="0" style="margin: 0;padding: 0;width: 100%;"
+        <table style="margin: 0;padding: 0;width: 100%;border:0;"
                th:if="${book_pages != null && book_pages.getContent() != null}">
             <tbody>
             <tr class="book-item" th:each="book, iStat : ${book_pages.getContent()}">
                 <td>
                     <div th:if="${book != null}">
-                        <div class="row" style="padding-bottom: 10px;">
+                        <div class="book_row">
                             <div class="col-xs-3">
-                                <img class="img-responsive shelf-book" th:width="200px" th:height="300px"
-                                     th:src="@{'../images/books/' + ${book.getId()}+'.png'}" alt="No image"/>
+                                <img class="img-responsive shelf-book" style="border-radius: 10px;border: 1px solid black;"
+                                     th:width="200px" th:height="300px" th:src="@{'../images/books/' + ${book.getId()}+'.png'}" alt="No image"/>
                             </div>
                             <div class="col-xs-9" style="padding-left: 30px;width: 80%">
                                 <a th:href="@{'/bookAction/bookDetail?id=' + ${book.getId()}}">
@@ -51,8 +51,7 @@
                th:class="${page_number == book_pages.getNumber() + 1} ? active"></a>
         </div>
     </div>
-
 </div>
-
+    <script src="../scripts/homeScript.js"></script>
 </body>
 </html>
