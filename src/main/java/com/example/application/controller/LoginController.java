@@ -1,7 +1,9 @@
 package com.example.application.controller;
 
 import com.example.application.model.Role;
+import com.example.application.model.ShoppingCart;
 import com.example.application.model.User;
+import com.example.application.service.ShoppingCartService;
 import com.example.application.service.UserService;
 import lombok.NonNull;
 import org.springframework.context.annotation.Lazy;
@@ -10,6 +12,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -38,7 +42,6 @@ public class LoginController {
             model.addAttribute("error", "Wrong email or password");
             return "login";
         }
-        System.out.println(user.toString());
         List<Role> roles = user.getRoles().stream().toList();
         Role role = roles.get(0);
         if(role.getName().compareTo("USER_ROLE") == 0){
