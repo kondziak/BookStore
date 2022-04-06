@@ -5,7 +5,7 @@
 </head>
 <body>
 <div th:replace="common/header :: navbar"></div>
-<div class="container" style="margin-top: 5px;">
+<div class="container" style="margin-top: 5px;" th:if="${cartItems != null && !cartItems.isEmpty()}">
     <div class="row">
         <div class="col">
             <h2 class="section-headline" style="text-align: center;">

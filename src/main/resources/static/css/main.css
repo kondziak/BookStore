@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
 .my_container{
     padding-top: 40px;
     width:100%;
@@ -126,7 +128,7 @@
     width: var(--hover-width);
 }
 
-.split.left, .split.right, split.left::before, .split.right::before{
+.split.left, .split.right, .split.left::before, .split.right::before{
     transition: all var(--speed) ease-in-out;
 }
 
@@ -149,7 +151,7 @@
     border: 1px solid black;
     padding: 20px 60px 10px;
     border-radius: 10px;
-    background-image: linear-gradient(#f3cece, #e59fba, #e7bbbb);
+    background-image: linear-gradient(#f3cece, #e59fba);
     box-shadow: 0 1px 5px rgba(0,0,0,0.5);
 }
 
@@ -178,8 +180,10 @@
 .login_title{
     font-weight: bold;
     text-align: center;
-    font-family: serif;
+    font-family: 'Roboto',monospace;
     padding: 20px 0;
+    color: steelblue;
+    letter-spacing: 1px;
 }
 
 .login_label{
@@ -190,11 +194,11 @@
 }
 
 .login_form{
-    border: 1px solid black;
+    border: 2px solid white;
     padding: 20px 20px 10px;
     border-radius: 10px;
-    background-image: linear-gradient(#f3cece, #e59fba, #e7bbbb);
-    box-shadow: 0 1px 5px rgba(0,0,0,0.5);
+    background-image: linear-gradient(#f3cece, #e59fba);
+    box-shadow: 1px 1px 5px rgba(0,0,0,0.5);
 }
 
 .login_button{
@@ -205,12 +209,16 @@
     background-image: linear-gradient(to right, #da1515, #eea32d);
     border: 0;
     border-radius: 10px;
-    font-size: 18px;
+    font-size: 24px;
     box-shadow: 0 1px 5px rgba(0,0,0,0.3);
 }
 
 .login_button:active{
     transform: scale(0.98);
+}
+
+.main_body{
+    background-color: #f0f0f0;
 }
 
 .main_container{
@@ -235,7 +243,7 @@
     display: flex;
     flex-wrap: wrap;
     padding: 5px 10px;
-    background-color: lightyellow;
+    background-color: white;
     margin: 10px 5px;
     box-shadow: 1px 1px 5px rgba(0,0,0,0.3);
     transform: translateX(-400%);
@@ -248,4 +256,34 @@
 
 .navbarItemUpdated{
     color: rgba(255,255,255,1) !important;
+}
+
+.main_row .alert.alert-info{
+    margin-bottom: 10px;
+}
+
+.home_table{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    border:0;
+}
+
+.col-xs-3 .img-responsive.shelf-book{
+    border-radius: 10px;
+    border: 1px solid black;
+}
+
+.book_row .col-xs-9{
+    padding-left: 30px;
+    width: 80%;
+}
+
+.col-xs-9 p{
+    margin: 0;
+}
+
+.col-xs-9 a span{
+    font-size: x-large;
+    color:#db3208;
 }
