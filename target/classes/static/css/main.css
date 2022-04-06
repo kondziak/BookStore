@@ -145,10 +145,12 @@
     letter-spacing: 2px;
     padding: 20px;
     font-weight: bold;
+    font-family: 'Roboto', monospace;
+    color: steelblue;
 }
 
 .register_form{
-    border: 1px solid black;
+    border: 2px solid white;
     padding: 20px 60px 10px;
     border-radius: 10px;
     background-image: linear-gradient(#f3cece, #e59fba);
@@ -162,11 +164,11 @@
 }
 
 .register_button{
-    margin-right: 15px;
-    padding: 10px 20px;
+    padding: 10px 40px;
+    margin-right: 10px;
     color: white;
     outline: 0;
-    background-image: linear-gradient(to right, #da1515, #eea32d);
+    background-color: steelblue;
     border: 0;
     border-radius: 10px;
     font-size: 18px;
@@ -202,11 +204,10 @@
 }
 
 .login_button{
-    margin-right: 15px;
-    padding: 10px 20px;
+    padding: 10px 40px;
     color: white;
     outline: 0;
-    background-image: linear-gradient(to right, #da1515, #eea32d);
+    background-color: steelblue;
     border: 0;
     border-radius: 10px;
     font-size: 24px;
@@ -286,4 +287,32 @@
 .col-xs-9 a span{
     font-size: x-large;
     color:#db3208;
+}
+
+.address_container{
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    margin: 0 60px;
+}
+
+.add_address_a{
+    text-align: right;
+    margin: 5px 5px;
+}
+
+.add_address_a a{
+    color: #707f90;
+}
+
+.body_address{
+    background-color: #f0f0f0;
+}
+
+.login_body{
+    overflow: hidden;
+}
+
+.billing_body{
+    background-color: white;
 }

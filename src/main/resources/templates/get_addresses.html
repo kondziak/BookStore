@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:tiles="http://www.thymeleaf.org" lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head th:replace="common/header :: page-header ">
     <title>Get addresses</title>
 </head>
-<body>
-<div th:replace="common/header :: navbar"></div>
+<body class="body_address">
+    <div th:replace="common/header :: navbar"></div>
 
-    <div class="container">
-        <div style="text-align: right;">
-            <a th:href="@{/billing/addAddress}" style="color: #707f90;">Want to add an address?</a>
-        </div>
+    <div class="add_address_a" >
+        <a th:href="@{/billing/addAddress}">Want to add an address?</a>
+    </div>
 
-        <table th:if="${billings != null && billings.size() > 0}" class="table" style="padding-top: 10px;">
+    <div class="address_container">
+        <table th:if="${billings != null && billings.size() > 0}" class="table">
             <thead class="thead-dark">
                 <tr>
                     <th scope="col">ID</th>
@@ -23,7 +23,7 @@
                 </tr>
             </thead>
 
-            <tbody th:each="billing : ${billings}" th:value="${billing}">
+            <tbody th:each="billing : ${billings}" th:value="${billing}" class="billing_body">
                 <tr>
                     <td th:text="${billing.getId()}"></td>
                     <td th:text="${billing.getCountry()}"></td>
@@ -35,8 +35,5 @@
             </tbody>
         </table>
     </div>
-
-
-
 </body>
 </html>
