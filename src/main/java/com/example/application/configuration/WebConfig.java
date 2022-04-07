@@ -64,7 +64,7 @@ public class WebConfig extends WebSecurityConfigurerAdapter {
                 .csrf()
                 .disable()
                 .authorizeRequests()
-                .antMatchers("/templates/**","/css/**","/images/**","/scripts/**","/","/register", "/home")
+                .antMatchers("/templates/**","/css/**","/images/**","/scripts/**","/","/register", "/home","/editData")
                 .permitAll()
                 .antMatchers("/bookAction*")
                 .hasRole("USER_ROLE")

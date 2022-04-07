@@ -3,51 +3,50 @@
 <head th:replace="common/header :: page-header">
     <title>Edit data</title>
 </head>
-<body>
+<body class="grey_body hidden_body">
 <div th:replace="common/header :: navbar"></div>
 
-    <div class="container">
+    <div class="common_container white_body" id="edit_container">
 
-        <div class="alert alert-danger" th:if="${error != null}" th:text="${error}" style="margin-top: 5px;"></div>
+        <div class="edit_data_form" id="edit_form">
+            <div class="alert alert-danger" th:if="${error != null}" th:text="${error}" style="bottom: 5px;"></div>
 
-        <form th:action="@{/userData/changeName}" method="post" style="margin-top: 10px;">
-            <div class="form-group">
+            <form th:action="@{/userData/changeName}" method="post">
                 <label for="first_name">First name</label>
-                <input type="text" name="first_name" class="form-control" autofocus="autofocus" required="required"
-                       id="first_name" placeholder="Enter name">
-            </div>
-            <button type="submit" class="btn btn-primary">Change first name</button>
-        </form>
+                <fieldset class="form_set">
+                        <input type="text" name="first_name" class="form_label" autofocus="autofocus" required="required"
+                               id="first_name" placeholder="Enter name">
+                        <button type="submit" class="form_button">Change first name</button>
+                </fieldset>
+            </form>
 
-        <form th:action="@{/userData/changeLastName}" method="post" style="margin-top: 10px;">
-            <div class="form-group">
+            <form th:action="@{/userData/changeLastName}" method="post" style="margin-top: 10px;">
                 <label for="last_name">Last name</label>
-                <input type="text" name="last_name" class="form-control" autofocus="autofocus" required="required"
-                       id="last_name" placeholder="Enter last name" minlength="4">
-            </div>
-            <button type="submit" class="btn btn-primary">Change last name</button>
-        </form>
+                <fieldset class="form_set">
+                    <input type="text" name="last_name" class="form_label" autofocus="autofocus" required="required"
+                           id="last_name" placeholder="Enter last name" minlength="4">
+                    <button type="submit" class="form_button">Change last name</button>
+                </fieldset>
+            </form>
 
-        <form th:action="@{/userData/changePassword}" method="post" style="margin-top: 20px;">
-            <div class="form-group">
-                <label for="currentPassword">Current password</label>
-                <input type="password" name="currentPassword" class="form-control" autofocus="autofocus" required="required"
-                       id="currentPassword" placeholder="Enter current password" minlength="6">
+            <form th:action="@{/userData/changePassword}" method="post" style="margin-top: 20px;">
 
-                <label for="newPassword">New password</label>
-                <input type="password" name="newPassword" class="form-control" autofocus="autofocus" required="required"
-                       id="newPassword" placeholder="Enter new password" minlength="6">
+                    <label for="currentPassword" class="label_space">Current password</label>
+                    <input type="password" name="currentPassword" class="form-control" autofocus="autofocus" required="required"
+                           id="currentPassword" placeholder="Enter current password" minlength="6">
 
-                <label for="confirmPassword">Confirm password</label>
-                <input type="password" name="confirmPassword" class="form-control" autofocus="autofocus" required="required"
-                       id="confirmPassword" placeholder="Confirm new password" minlength="6">
-            </div>
-            <button type="submit" class="btn btn-primary">Change password</button>
-        </form>
+                    <label for="newPassword" class="label_space">New password</label>
+                    <input type="password" name="newPassword" class="form-control" autofocus="autofocus" required="required"
+                           id="newPassword" placeholder="Enter new password" minlength="6">
 
+                    <label for="confirmPassword" class="label_space">Confirm password</label>
+                    <input type="password" name="confirmPassword" class="form-control" autofocus="autofocus" required="required"
+                           id="confirmPassword" placeholder="Confirm new password" minlength="6">
 
+                <button type="submit" class="form_button button_space">Change password</button>
+            </form>
+        </div>
     </div>
-
-
+    <script src="../scripts/editData.js"></script>
 </body>
 </html>
