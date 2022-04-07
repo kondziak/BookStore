@@ -305,14 +305,14 @@
     color: #707f90;
 }
 
-.body_address{
-    background-color: #f0f0f0;
-}
-
 .login_body{
     overflow: hidden;
 }
 
-.billing_body{
+.grey_body{
+    background-color: #f0f0f0;
+}
+
+.white_body{
     background-color: white;
 }

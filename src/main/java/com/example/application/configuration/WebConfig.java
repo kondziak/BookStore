@@ -10,7 +10,15 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.authentication.logout.LogoutHandler;
+import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 @Configuration
 @EnableWebSecurity
@@ -21,6 +29,15 @@ public class WebConfig extends WebSecurityConfigurerAdapter {
     public WebConfig(@Lazy @NonNull UserServiceImpl userService) {
         super();
         this.userService = userService;
+    }
+
+    @Bean
+    public LogoutHandler getLogoutHandler(){
+        return (request, response, authentication) -> {
+            if(authentication != null){
+                new SecurityContextLogoutHandler().logout(request,response,authentication);
+            }
+        };
     }
 
     @Bean
@@ -63,6 +80,7 @@ public class WebConfig extends WebSecurityConfigurerAdapter {
                 .permitAll()
                 .and()
                 .logout()
+                .addLogoutHandler(getLogoutHandler())
                 .logoutSuccessUrl("/")
                 .permitAll();
     }

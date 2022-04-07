@@ -1,19 +1,20 @@
 package com.example.application.controller;
 
 import com.example.application.model.Role;
-import com.example.application.model.ShoppingCart;
 import com.example.application.model.User;
-import com.example.application.service.ShoppingCartService;
 import com.example.application.service.UserService;
 import lombok.NonNull;
 import org.springframework.context.annotation.Lazy;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.math.BigDecimal;
-import java.util.ArrayList;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 @Controller
@@ -48,11 +49,6 @@ public class LoginController {
             return "redirect:/home";
         }
         return "redirect:/adminPanel";
-    }
-
-    @GetMapping("/logout")
-    public String getLogout(){
-        return "index";
     }
 
 }

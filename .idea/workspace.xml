@@ -4,7 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1176f816-5efc-46ad-a08c-eefe4f816eb4" name="Default Changelist" comment="" />
+    <list default="true" id="1176f816-5efc-46ad-a08c-eefe4f816eb4" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/configuration/WebConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/configuration/WebConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/controller/AppController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/controller/AppController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/controller/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/add_book.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/add_book.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin_panel.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin_panel.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/book_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/book_detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/common/header_admin.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/common/header_admin.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/get_addresses.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/get_addresses.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/css/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/add_book.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/add_book.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/admin_panel.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/admin_panel.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/common/header_admin.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/common/header_admin.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/index.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -134,6 +152,8 @@
       <workItem from="1648917570395" duration="10723000" />
       <workItem from="1648973423437" duration="2480000" />
       <workItem from="1649274640256" duration="6643000" />
+      <workItem from="1649323166878" duration="4457000" />
+      <workItem from="1649331304583" duration="1899000" />
     </task>
     <servers />
   </component>

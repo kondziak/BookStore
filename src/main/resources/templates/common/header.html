@@ -21,6 +21,9 @@
                 <input class="form-control mr-sm-2" type="text" name="action" aria-label="Search"
                        th:name="search">
                 <input class="btn btn-outline-success my-2 my-sm-0" type="submit" value="Search"/>
+                <ul class="navbar-nav my-2 my-lg-0">
+                    <li class="nav-item"><a class="nav-link" th:href="@{/logout}" method="get">Logout</a></li>
+                </ul>
             </form>
         </div>
         <script src="../scripts/navbarScript.js"></script>

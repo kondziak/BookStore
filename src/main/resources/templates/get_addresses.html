@@ -3,7 +3,7 @@
 <head th:replace="common/header :: page-header ">
     <title>Get addresses</title>
 </head>
-<body class="body_address">
+<body class="grey_body">
     <div th:replace="common/header :: navbar"></div>
 
     <div class="add_address_a" >
@@ -23,7 +23,7 @@
                 </tr>
             </thead>
 
-            <tbody th:each="billing : ${billings}" th:value="${billing}" class="billing_body">
+            <tbody th:each="billing : ${billings}" th:value="${billing}" class="white_body">
                 <tr>
                     <td th:text="${billing.getId()}"></td>
                     <td th:text="${billing.getCountry()}"></td>
